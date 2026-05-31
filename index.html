@@ -15,6 +15,8 @@
       --green-light: #DCFCE7;
       --red: #EF4444;
       --red-light: #FEE2E2;
+      --yellow: #F59E0B;
+      --yellow-light: #FEF3C7;
       --bg: #F5F3FF;
       --card: #FFFFFF;
       --text: #1E1B4B;
@@ -23,9 +25,7 @@
       --radius: 16px;
       --radius-sm: 10px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Nunito Sans', sans-serif;
       background: var(--bg);
@@ -33,28 +33,10 @@
       color: var(--text);
       padding: 24px 16px 48px;
     }
+    .container { max-width: 640px; margin: 0 auto; }
 
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    /* ---- HEADER ---- */
-    .header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    .header h1 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .header p {
-      font-size: 15px;
-      color: var(--muted);
-    }
+    /* HEADER */
+    .header { text-align: center; margin-bottom: 28px; }
     .header .badge {
       display: inline-block;
       background: var(--purple-light);
@@ -62,109 +44,125 @@
       font-family: 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 12px;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 99px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       letter-spacing: 0.5px;
     }
-
-    /* ---- SCREENS ---- */
-    .screen { display: none; }
-    .screen.active { display: block; }
-
-    /* ---- SUBJECT GRID ---- */
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 14px;
-    }
-    .subject-card {
-      background: var(--card);
-      border: 2px solid transparent;
-      border-radius: var(--radius);
-      padding: 20px 16px;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(108,99,255,0.07);
-    }
-    .subject-card:hover {
-      border-color: var(--purple);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(108,99,255,0.15);
-    }
-    .subject-card .icon { font-size: 32px; margin-bottom: 10px; }
-    .subject-card .name {
+    .header h1 {
       font-family: 'Nunito', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 26px;
+      font-weight: 800;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
-    .subject-card .qty {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .subject-card .pill {
-      display: inline-block;
-      margin-top: 10px;
-      background: var(--purple-light);
-      color: var(--purple);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 99px;
-    }
+    .header p { font-size: 14px; color: var(--muted); }
 
-    /* ---- QUIZ HEADER ---- */
-    .quiz-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    /* SCREENS */
+    .screen { display: none; }
+    .screen.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* START SCREEN */
+    .start-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(108,99,255,0.08);
+      text-align: center;
       margin-bottom: 20px;
     }
-    .btn-back {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 8px 14px;
+    .start-card .big-icon { font-size: 52px; margin-bottom: 16px; }
+    .start-card h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .start-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .subjects-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .subj-chip {
+      background: var(--purple-light);
+      color: var(--purple);
+      font-family: 'Nunito', sans-serif;
       font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 99px;
+    }
+    .btn-start {
+      width: 100%;
+      padding: 16px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
       cursor: pointer;
       transition: all 0.15s;
-      white-space: nowrap;
     }
-    .btn-back:hover { border-color: var(--purple); color: var(--purple); }
-    .prog-wrap { flex: 1; }
-    .prog-meta {
+    .btn-start:hover { background: var(--purple-dark); transform: scale(1.01); }
+
+    /* PROGRESS BAR GLOBAL */
+    .global-prog {
+      margin-bottom: 20px;
+    }
+    .global-prog-meta {
       display: flex;
       justify-content: space-between;
       font-size: 12px;
-      color: var(--muted);
       font-weight: 600;
+      color: var(--muted);
       margin-bottom: 6px;
     }
-    .prog-bar {
-      height: 6px;
+    .global-prog-bar {
+      height: 8px;
       background: var(--border);
       border-radius: 99px;
       overflow: hidden;
     }
-    .prog-fill {
+    .global-prog-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--purple), #9B8FF5);
       border-radius: 99px;
-      transition: width 0.4s ease;
+      transition: width 0.5s ease;
     }
 
-    /* ---- QUESTION CARD ---- */
+    /* SUBJECT BANNER */
+    .subj-banner {
+      background: var(--purple);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .subj-banner .s-icon { font-size: 26px; }
+    .subj-banner .s-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .subj-banner .s-sub { font-size: 12px; opacity: 0.8; }
+
+    /* QUESTION CARD */
     .q-card {
       background: var(--card);
       border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 22px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .q-num {
       font-size: 11px;
@@ -172,28 +170,28 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--purple);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .q-text {
       font-family: 'Nunito', sans-serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       line-height: 1.55;
       color: var(--text);
     }
 
-    /* ---- OPTIONS ---- */
-    .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+    /* OPTIONS */
+    .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
     .opt {
       background: var(--card);
       border: 2px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 14px 16px;
+      padding: 13px 16px;
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text);
       transition: all 0.15s;
@@ -202,18 +200,12 @@
     }
     .opt:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-light); }
     .opt .opt-letter {
-      width: 28px;
-      height: 28px;
+      width: 26px; height: 26px;
       border-radius: 50%;
       background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--muted);
-      flex-shrink: 0;
-      transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: var(--muted);
+      flex-shrink: 0; transition: all 0.15s;
     }
     .opt.selected { border-color: var(--purple); background: var(--purple-light); }
     .opt.selected .opt-letter { background: var(--purple); color: #fff; }
@@ -223,124 +215,153 @@
     .opt.wrong .opt-letter { background: var(--red); color: #fff; }
     .opt:disabled { cursor: default; }
 
-    /* ---- FEEDBACK ---- */
+    /* FEEDBACK */
     .feedback {
       border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      font-size: 14px;
+      padding: 11px 14px;
+      font-size: 13px;
       font-weight: 600;
       line-height: 1.5;
       display: none;
       align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 16px;
+      gap: 8px;
+      margin-bottom: 14px;
     }
     .feedback.show { display: flex; }
     .feedback.correct { background: var(--green-light); color: #166534; border: 1.5px solid #86EFAC; }
     .feedback.wrong { background: var(--red-light); color: #991B1B; border: 1.5px solid #FCA5A5; }
-    .feedback .fb-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .fb-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
-    /* ---- BUTTONS ---- */
+    /* BUTTONS */
     .btn-row { display: flex; gap: 10px; }
     .btn-confirm, .btn-next {
-      flex: 1;
-      padding: 14px;
-      border: none;
-      border-radius: var(--radius-sm);
+      flex: 1; padding: 13px;
+      border: none; border-radius: var(--radius-sm);
       font-family: 'Nunito', sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.15s;
+      font-size: 15px; font-weight: 800;
+      cursor: pointer; transition: all 0.15s;
     }
-    .btn-confirm {
-      background: var(--purple);
-      color: #fff;
-    }
+    .btn-confirm { background: var(--purple); color: #fff; }
     .btn-confirm:hover { background: var(--purple-dark); }
-    .btn-next {
-      background: var(--purple);
-      color: #fff;
-    }
-    .btn-next:hover { background: var(--purple-dark); transform: scale(1.01); }
-    .btn-next:disabled { opacity: 0.4; cursor: default; transform: none; }
+    .btn-next { background: var(--purple); color: #fff; display: none; }
+    .btn-next:hover { background: var(--purple-dark); }
 
-    /* ---- RESULT ---- */
-    .result-card {
+    /* SUBJECT TRANSITION */
+    .subj-transition {
       background: var(--card);
       border-radius: var(--radius);
       padding: 32px 24px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(108,99,255,0.1);
+      box-shadow: 0 2px 12px rgba(108,99,255,0.08);
     }
-    .result-icon { font-size: 56px; margin-bottom: 16px; }
+    .subj-transition .big-icon { font-size: 48px; margin-bottom: 12px; }
+    .subj-transition h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 20px; font-weight: 800;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .subj-transition p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .score-inline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--purple-light);
+      color: var(--purple);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 15px;
+      padding: 8px 18px; border-radius: 99px;
+      margin-bottom: 24px;
+    }
+    .btn-continue {
+      width: 100%; padding: 14px;
+      background: var(--purple); color: #fff;
+      border: none; border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 800;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .btn-continue:hover { background: var(--purple-dark); }
+
+    /* RESULT */
+    .result-header {
+      background: var(--purple);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .result-header .big-icon { font-size: 52px; margin-bottom: 12px; }
+    .result-header h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px; font-weight: 800; margin-bottom: 4px;
+    }
+    .result-header p { font-size: 14px; opacity: 0.85; }
     .result-pct {
       font-family: 'Nunito', sans-serif;
-      font-size: 52px;
-      font-weight: 800;
-      color: var(--purple);
-      line-height: 1;
+      font-size: 56px; font-weight: 800;
+      margin: 8px 0 4px;
     }
-    .result-msg {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--muted);
-      margin: 8px 0 24px;
+
+    /* SUBJECT RESULTS */
+    .subj-results { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .subj-result-row {
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
     }
-    .stats {
+    .subj-result-row .s-icon { font-size: 24px; flex-shrink: 0; }
+    .subj-result-row .s-info { flex: 1; }
+    .subj-result-row .s-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800; color: var(--text);
+      margin-bottom: 5px;
+    }
+    .mini-bar {
+      height: 6px; background: var(--border); border-radius: 99px; overflow: hidden;
+    }
+    .mini-fill {
+      height: 100%; border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+    .subj-result-row .s-score {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      flex-shrink: 0; min-width: 44px; text-align: right;
+    }
+    .medal { font-size: 18px; flex-shrink: 0; }
+
+    .total-box {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
     }
-    .stat-box {
-      background: var(--bg);
-      border-radius: var(--radius-sm);
-      padding: 14px 8px;
-    }
-    .stat-box .val {
+    .total-stat { text-align: center; }
+    .total-stat .val {
       font-family: 'Nunito', sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text);
+      font-size: 26px; font-weight: 800; color: var(--text);
     }
-    .stat-box .lbl {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-    .result-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px 22px;
+    .total-stat .lbl { font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 2px; }
+
+    .btn-restart {
+      width: 100%; padding: 14px;
+      background: var(--purple); color: #fff;
+      border: none; border-radius: var(--radius-sm);
       font-family: 'Nunito', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.15s;
+      font-size: 15px; font-weight: 800;
+      cursor: pointer; transition: all 0.15s;
     }
-    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
-    .btn-solid {
-      background: var(--purple);
-      border: 2px solid var(--purple);
-      border-radius: var(--radius-sm);
-      padding: 12px 22px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: #fff;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .btn-solid:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
+    .btn-restart:hover { background: var(--purple-dark); }
 
     @media (max-width: 480px) {
-      .subjects-grid { grid-template-columns: repeat(2, 1fr); }
-      .header h1 { font-size: 24px; }
+      .header h1 { font-size: 22px; }
       .q-text { font-size: 15px; }
     }
   </style>
@@ -351,57 +372,79 @@
   <div class="header">
     <div class="badge">✏️ Fixação para o Simulado</div>
     <h1>📚 Simulado Maria Fernanda</h1>
-    <p>Questões das suas folhas de estudo</p>
+    <p>Questões retiradas das suas folhas de estudo</p>
   </div>
 
-  <!-- TELA: Seleção de matéria -->
-  <div class="screen active" id="screen-home">
-    <div class="subjects-grid" id="subjects-grid"></div>
+  <!-- TELA: Início -->
+  <div class="screen active" id="screen-start">
+    <div class="start-card">
+      <div class="big-icon">🎯</div>
+      <h2>Simulado Completo</h2>
+      <p>Você vai responder questões de todas as matérias em sequência. Ao final, verá seu resultado em cada disciplina.</p>
+      <div class="subjects-preview" id="subjects-preview"></div>
+      <button class="btn-start" onclick="startSimulado()">Começar Simulado →</button>
+    </div>
   </div>
 
-  <!-- TELA: Quiz -->
+  <!-- TELA: Questão -->
   <div class="screen" id="screen-quiz">
-    <div class="quiz-top">
-      <button class="btn-back" onclick="goHome()">← Voltar</button>
-      <div class="prog-wrap">
-        <div class="prog-meta">
-          <span id="prog-label">Questão 1 de 5</span>
-          <span id="prog-subject"></span>
-        </div>
-        <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="global-prog">
+      <div class="global-prog-meta">
+        <span id="prog-label">Questão 1 de 30</span>
+        <span id="prog-pct">0%</span>
+      </div>
+      <div class="global-prog-bar">
+        <div class="global-prog-fill" id="prog-fill" style="width:0%"></div>
       </div>
     </div>
-
+    <div class="subj-banner">
+      <span class="s-icon" id="banner-icon"></span>
+      <div>
+        <div class="s-name" id="banner-name"></div>
+        <div class="s-sub" id="banner-sub"></div>
+      </div>
+    </div>
     <div class="q-card">
       <div class="q-num" id="q-num"></div>
       <div class="q-text" id="q-text"></div>
     </div>
-
     <div class="options" id="q-options"></div>
     <div class="feedback" id="feedback"></div>
-
     <div class="btn-row">
       <button class="btn-confirm" id="btn-confirm" onclick="checkAnswer()">Confirmar resposta</button>
-      <button class="btn-next" id="btn-next" onclick="nextQuestion()" disabled style="display:none">Próxima →</button>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Próxima →</button>
     </div>
   </div>
 
-  <!-- TELA: Resultado -->
-  <div class="screen" id="screen-result">
-    <div class="result-card">
-      <div class="result-icon" id="res-icon"></div>
-      <div class="result-pct" id="res-pct"></div>
-      <div class="result-msg" id="res-msg"></div>
-      <div class="stats">
-        <div class="stat-box"><div class="val" id="res-acertos"></div><div class="lbl">Acertos</div></div>
-        <div class="stat-box"><div class="val" id="res-erros"></div><div class="lbl">Erros</div></div>
-        <div class="stat-box"><div class="val" id="res-total"></div><div class="lbl">Total</div></div>
-      </div>
-      <div class="result-btns">
-        <button class="btn-outline" onclick="goHome()">Outra matéria</button>
-        <button class="btn-solid" onclick="retry()">Tentar novamente</button>
-      </div>
+  <!-- TELA: Transição de matéria -->
+  <div class="screen" id="screen-transition">
+    <div class="subj-transition">
+      <div class="big-icon" id="tr-icon"></div>
+      <h2 id="tr-title"></h2>
+      <p id="tr-msg"></p>
+      <div class="score-inline" id="tr-score"></div>
+      <button class="btn-continue" id="tr-btn" onclick="continueSimulado()">Continuar →</button>
     </div>
+  </div>
+
+  <!-- TELA: Resultado Final -->
+  <div class="screen" id="screen-result">
+    <div class="result-header">
+      <div class="big-icon" id="res-icon"></div>
+      <div class="result-pct" id="res-pct"></div>
+      <h2>Simulado Concluído!</h2>
+      <p id="res-msg"></p>
+    </div>
+
+    <div class="total-box">
+      <div class="total-stat"><div class="val" id="tot-acertos"></div><div class="lbl">Acertos</div></div>
+      <div class="total-stat"><div class="val" id="tot-erros"></div><div class="lbl">Erros</div></div>
+      <div class="total-stat"><div class="val" id="tot-total"></div><div class="lbl">Questões</div></div>
+    </div>
+
+    <div class="subj-results" id="subj-results"></div>
+
+    <button class="btn-restart" onclick="restart()">🔄 Refazer Simulado</button>
   </div>
 
 </div>
@@ -413,39 +456,39 @@ const SUBJECTS = [
     questions: [
       { p: "84 - {[(32 + 12) - (25 - 16)] + 3} =", a: ["46","47","48","49"], c: 0, e: "Resolvendo de dentro para fora: (32+12)=44; (25-16)=9; 44-9=35; 35+3=38; 84-38=46." },
       { p: "A professora Marisa escreveu: 90 - 17 + 8 = Y. O valor de Y é:", a: ["67","75","52","81"], c: 3, e: "90 - 17 = 73. 73 + 8 = 81. Portanto Y = 81." },
-      { p: "Identifique as propriedades: ( ) 3×0= ; ( ) 5×7=7×5 ; ( ) 12×(2×21)=. A ordem correta das propriedades (1-comutativa, 2-associativa, 3-elemento neutro) é:", a: ["1, 3, 2","2, 1, 3","3, 1, 2","2, 3, 1"], c: 3, e: "3×0 usa elemento neutro (3); 5×7=7×5 é comutativa (1); 12×(2×21) é associativa (2). Ordem: 3, 1, 2 → resposta 2, 3, 1? Confirme com a professora." },
-      { p: "Uma professora leva 2 horas para formular uma prova, de um conjunto de 7 provas por turma. Há 4 bimestres no ano. Quantas horas ela levou ao total?", a: ["14 horas","56 horas","46 horas","8 horas"], c: 1, e: "2h × 7 provas = 14h por bimestre. 14h × 4 bimestres = 56 horas no total." },
-      { p: "Uma empresa investiu em 105 ar-condicionados. Cada aparelho custa R$1.200. Quanto a empresa gastou?", a: ["R$126.000","R$120.000","R$105.000","R$12.000"], c: 0, e: "105 × R$1.200 = R$126.000." }
+      { p: "Identifique as propriedades: 3×0 (neutro=3); 5×7=7×5 (comutativa=1); 12×(2×21) (associativa=2). A ordem correta é:", a: ["1, 3, 2","2, 1, 3","3, 1, 2","2, 3, 1"], c: 2, e: "3×0 → elemento neutro (3); 5×7=7×5 → comutativa (1); 12×(2×21) → associativa (2). Ordem: 3, 1, 2." },
+      { p: "Uma professora leva 2h por prova, 7 provas por turma, 4 bimestres no ano. Total de horas:", a: ["14 horas","56 horas","46 horas","8 horas"], c: 1, e: "2h × 7 provas = 14h por bimestre. 14h × 4 bimestres = 56 horas." },
+      { p: "Uma empresa comprou 105 ar-condicionados a R$1.200 cada. Total gasto:", a: ["R$126.000","R$120.000","R$105.000","R$12.000"], c: 0, e: "105 × R$1.200 = R$126.000." }
     ]
   },
   {
     id: "portugues", label: "Português", icon: "📝",
     questions: [
-      { p: "Oxítonas terminadas em -d(r), -l, -e(s), -o(s) e -em(ens) são:", a: ["Sempre acentuadas","Nunca acentuadas","Paroxítonas","Proparoxítonas"], c: 0, e: "Pelas regras de acentuação, oxítonas terminadas nessas letras/sílabas são sempre acentuadas." },
+      { p: "Oxítonas terminadas em -d(r), -l, -e(s), -o(s) e -em(ens) são:", a: ["Sempre acentuadas","Nunca acentuadas","Paroxítonas","Proparoxítonas"], c: 0, e: "Pelas regras de acentuação, oxítonas com essas terminações são sempre acentuadas." },
       { p: "As paroxítonas terminadas em -l, -r, -n, -ps, -x, ditongos e -ão(s) são:", a: ["Nunca acentuadas","Acentuadas","Sempre sem acento","Monossílabas tônicas"], c: 1, e: "Essas terminações fazem com que as paroxítonas sejam acentuadas." },
-      { p: "Todas as proparoxítonas são:", a: ["Opcionalmente acentuadas","Nunca acentuadas","Sempre acentuadas","Acentuadas só com ditongo"], c: 2, e: "Regra geral: todas as proparoxítonas são acentuadas, sem exceção." },
+      { p: "Todas as proparoxítonas são:", a: ["Opcionalmente acentuadas","Nunca acentuadas","Sempre acentuadas","Só com ditongo"], c: 2, e: "Regra sem exceção: todas as proparoxítonas são acentuadas." },
       { p: "Verbo é:", a: ["Uma palavra que indica qualidade","Uma ação ou fenômeno da natureza (ex: nevar, chover)","Uma palavra que indica lugar","Um pronome de tratamento"], c: 1, e: "Verbo indica ação ou fenômeno da natureza. Exemplos: nevar, chover, correr." },
-      { p: "Interjeições são palavras que:", a: ["Indicam ação","Indicam emoção e sentimentos, geralmente com ponto de exclamação","Nomeiam seres","São os sons das palavras"], c: 1, e: "Interjeições indicam emoção e sentimentos, e costumam ser acompanhadas de ponto de exclamação." }
+      { p: "Interjeições são palavras que:", a: ["Indicam ação","Indicam emoção e sentimentos, geralmente com !","Nomeiam seres","São os sons das palavras"], c: 1, e: "Interjeições indicam emoção e sentimentos, geralmente acompanhadas de ponto de exclamação." }
     ]
   },
   {
     id: "historia", label: "História", icon: "🏛️",
     questions: [
       { p: "Declaração elaborada na França em 1789, durante a Revolução Francesa, que excluía grande parte da população:", a: ["Declaração dos Direitos do Homem e do Cidadão","Declaração Universal dos Direitos Humanos","Estatuto da Criança e do Adolescente","Estatuto dos Idosos"], c: 0, e: "A Declaração dos Direitos do Homem e do Cidadão (1789) excluía mulheres, escravizados e estrangeiros." },
-      { p: "'Todas as pessoas nascem livres e iguais em dignidade e direitos.' Onde esse artigo está mencionado?", a: ["Declaração dos Direitos do Homem e do Cidadão","Declaração Universal dos Direitos Humanos","Estatuto da Criança e do Adolescente","Estatuto dos Idosos"], c: 1, e: "É o Artigo 1º da Declaração Universal dos Direitos Humanos, adotada pela ONU em 1948." },
-      { p: "Mulheres, pessoas escravizadas e estrangeiros foram excluídos da democracia ateniense, não sendo considerados:", a: ["Funcionários","Cidadãos","Empresários","Fazendeiros"], c: 1, e: "Na democracia ateniense, só eram cidadãos homens livres, filhos de atenienses, com mais de 18 anos." },
-      { p: "Um indivíduo que possui consciência de seus direitos e deveres e participa ativamente da sociedade é chamado de:", a: ["Cidadania","Cidadão","Ateniense","Constituição"], c: 1, e: "O cidadão ativo conhece seus direitos e deveres e participa dos assuntos da sociedade." },
-      { p: "Tem como objetivo resolver conflitos por meios pacíficos, garantir o respeito aos direitos humanos e combater a desigualdade social:", a: ["Declaração Universal dos Direitos Humanos","Declaração dos Direitos do Homem e do Cidadão","Organização das Nações Unidas (ONU)","Cidadania"], c: 2, e: "A ONU foi criada após a Segunda Guerra Mundial com exatamente esses objetivos." }
+      { p: "'Todas as pessoas nascem livres e iguais em dignidade e direitos.' Onde está esse artigo?", a: ["Declaração dos Direitos do Homem e do Cidadão","Declaração Universal dos Direitos Humanos","Estatuto da Criança e do Adolescente","Estatuto dos Idosos"], c: 1, e: "É o Artigo 1º da Declaração Universal dos Direitos Humanos (ONU, 1948)." },
+      { p: "Mulheres, escravizados e estrangeiros foram excluídos da democracia ateniense, não sendo considerados:", a: ["Funcionários","Cidadãos","Empresários","Fazendeiros"], c: 1, e: "Na democracia ateniense, só eram cidadãos homens livres, filhos de atenienses, maiores de 18 anos." },
+      { p: "Indivíduo que possui consciência de seus direitos e deveres e participa ativamente da sociedade:", a: ["Cidadania","Cidadão","Ateniense","Constituição"], c: 1, e: "O cidadão ativo conhece seus direitos e deveres e participa dos assuntos da sociedade." },
+      { p: "Tem como objetivo resolver conflitos pacificamente, garantir os direitos humanos e combater a desigualdade social:", a: ["Declaração Universal dos Direitos Humanos","Declaração dos Direitos do Homem e do Cidadão","Organização das Nações Unidas (ONU)","Cidadania"], c: 2, e: "A ONU foi criada após a Segunda Guerra Mundial com exatamente esses objetivos." }
     ]
   },
   {
     id: "geografia", label: "Geografia", icon: "🌎",
     questions: [
-      { p: "Qual foi a primeira capital do território brasileiro?", a: ["Santos","Duque de Caxias","Salvador","Amazonas"], c: 2, e: "Salvador foi a primeira capital do Brasil, de 1549 até 1763, quando o Rio de Janeiro assumiu." },
-      { p: "As primeiras cidades brasileiras surgiram a partir do:", a: ["Século 16","Século 17","Século 19","Século 20"], c: 0, e: "As primeiras cidades no Brasil surgiram no século 16, com a colonização portuguesa." },
-      { p: "As cidades podem ser classificadas entre cidades de crescimento espontâneo e:", a: ["Cidades planejadas","Cidades médias espontâneas","Crescimento urbano","Cidades brasileiras"], c: 0, e: "As espontâneas se desenvolvem naturalmente; as planejadas são criadas com projeto inicial (como Brasília)." },
-      { p: "Quando pessoas deixam o campo para morar nas cidades, chamamos esse movimento de:", a: ["Migração","Migração interna","Migração externa","Êxodo rural"], c: 3, e: "Êxodo rural é o deslocamento de pessoas do campo em direção às cidades." },
-      { p: "Por meio delas é possível acompanhar o avanço do desmatamento, as queimadas e outros problemas ambientais:", a: ["Imagem de satélite","Satélite artificial","Satélites naturais","Captação de imagem"], c: 0, e: "As imagens de satélite permitem monitorar mudanças no território, como desmatamento e queimadas." }
+      { p: "Qual foi a primeira capital do território brasileiro?", a: ["Santos","Duque de Caxias","Salvador","Amazonas"], c: 2, e: "Salvador foi a primeira capital do Brasil, de 1549 até 1763." },
+      { p: "As primeiras cidades brasileiras surgiram a partir do:", a: ["Século 16","Século 17","Século 19","Século 20"], c: 0, e: "As primeiras cidades surgiram no século 16, com a colonização portuguesa." },
+      { p: "As cidades podem ser classificadas entre cidades de crescimento espontâneo e:", a: ["Cidades planejadas","Cidades médias espontâneas","Crescimento urbano","Cidades brasileiras"], c: 0, e: "As espontâneas surgem naturalmente; as planejadas são criadas com projeto inicial (ex: Brasília)." },
+      { p: "Quando pessoas deixam o campo para morar nas cidades, esse movimento é chamado de:", a: ["Migração","Migração interna","Migração externa","Êxodo rural"], c: 3, e: "Êxodo rural é o deslocamento de pessoas do campo em direção às cidades." },
+      { p: "Por meio delas é possível acompanhar o avanço do desmatamento, queimadas e outros problemas ambientais:", a: ["Imagem de satélite","Satélite artificial","Satélites naturais","Captação de imagem"], c: 0, e: "As imagens de satélite permitem monitorar mudanças no território, como desmatamento e queimadas." }
     ]
   },
   {
@@ -453,9 +496,9 @@ const SUBJECTS = [
     questions: [
       { p: "Órgão do sistema urinário responsável por filtrar o sangue:", a: ["Coração","Pulmão","Estômago","Rins"], c: 3, e: "Os rins filtram o sangue e produzem a urina, que contém as excretas do organismo." },
       { p: "Complete: 'Grande parte das ________ produzidas pelo organismo é eliminada pela urina.'", a: ["Nutrientes","Excretas","Vitaminas","Gás carbônico"], c: 1, e: "As excretas (resíduos do metabolismo) são eliminadas principalmente pela urina." },
-      { p: "Órgão responsável pelo transporte da urina dos rins até a bexiga urinária:", a: ["Ureteres","Bexiga urinária","Rins","Uretra"], c: 0, e: "Os ureteres são tubos que levam a urina dos rins até a bexiga urinária." },
-      { p: "Onde é armazenada temporariamente a urina no sistema urinário?", a: ["Ureteres","Bexiga urinária","Rins","Uretra"], c: 1, e: "A bexiga urinária armazena a urina até ela ser eliminada pelo organismo." },
-      { p: "Se formam quando há acúmulo de cristais nos rins, também conhecidos como 'pedras nos rins':", a: ["Cálculos renais","Ureteres","Uretra","Rins"], c: 0, e: "Os cálculos renais (pedras nos rins) formam-se pelo acúmulo de minerais cristalizados nos rins." }
+      { p: "Órgão responsável pelo transporte da urina dos rins até a bexiga urinária:", a: ["Ureteres","Bexiga urinária","Rins","Uretra"], c: 0, e: "Os ureteres são tubos que levam a urina dos rins até a bexiga." },
+      { p: "Onde é armazenada temporariamente a urina no sistema urinário?", a: ["Ureteres","Bexiga urinária","Rins","Uretra"], c: 1, e: "A bexiga urinária armazena a urina até ser eliminada pelo organismo." },
+      { p: "Formam-se pelo acúmulo de cristais nos rins, também conhecidos como 'pedras nos rins':", a: ["Cálculos renais","Ureteres","Uretra","Rins"], c: 0, e: "Os cálculos renais (pedras nos rins) formam-se pelo acúmulo de minerais cristalizados nos rins." }
     ]
   },
   {
@@ -463,18 +506,22 @@ const SUBJECTS = [
     questions: [
       { p: "A dança foi uma das primeiras formas de expressão humana. Essa dança primitiva é chamada de:", a: ["Arte rupestre","Arte contemporânea","Pop Art","Arte pré-histórica"], c: 3, e: "As primeiras danças eram manifestações da arte pré-histórica, registradas em pinturas rupestres." },
       { p: "Complete: 'As __________ feitas há milhares de anos indicam que a dança é uma atividade muito antiga.'", a: ["Pinturas gregas","Pinturas romanas","Pinturas rupestres","Arte pré-histórica"], c: 2, e: "As pinturas rupestres mostram cenas de dança e rituais da pré-história." },
-      { p: "Qual forma de dança se transformou e ganhou códigos e regras específicas?", a: ["Dança clássica","Balé","Rituais","Cantos"], c: 1, e: "O balé é a forma de dança que desenvolveu técnica, vocabulário e regras próprias." },
-      { p: "Onde surgiu o balé?", a: ["Na França","Na Itália","Na Espanha","Na Grécia"], c: 1, e: "O balé surgiu na Itália durante o Renascimento (século XV) e depois se desenvolveu na França." },
+      { p: "Qual forma de dança se transformou e ganhou códigos e regras específicas?", a: ["Dança clássica","Balé","Rituais","Cantos"], c: 1, e: "O balé é a forma de dança que desenvolveu técnica, vocabulário e regras próprias ao longo do tempo." },
+      { p: "Onde surgiu o balé?", a: ["Na França","Na Itália","Na Espanha","Na Grécia"], c: 1, e: "O balé surgiu na Itália durante o Renascimento (século XV) e depois se consolidou na França." },
       { p: "Realizado nos salões da nobreza, incluía poesia, cantos e espetáculos como A Bela Adormecida:", a: ["Balé encantado","Balé de corte","Balé de repertório","Balé clássico"], c: 1, e: "O balé de corte era apresentado nos palácios da nobreza, misturando dança, poesia e música." }
     ]
   }
 ];
 
-let currentSubject = null;
-let currentQ = 0;
-let score = 0;
+// Estado global
+let allQuestions = [];   // lista flat: { subjectIndex, questionIndex }
+let current = 0;         // índice na lista flat
+let scores = {};         // { subjectId: { acertos, total } }
 let selected = null;
 let answered = false;
+let lastSubjectId = null;
+
+const TOTAL_Q = SUBJECTS.reduce((s, sub) => s + sub.questions.length, 0);
 
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -482,45 +529,56 @@ function show(id) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function buildHome() {
-  const grid = document.getElementById('subjects-grid');
-  grid.innerHTML = '';
+function buildStart() {
+  const prev = document.getElementById('subjects-preview');
+  prev.innerHTML = '';
   SUBJECTS.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'subject-card';
-    card.innerHTML = `
-      <div class="icon">${s.icon}</div>
-      <div class="name">${s.label}</div>
-      <div class="qty">${s.questions.length} questões</div>
-      <span class="pill">Iniciar →</span>
-    `;
-    card.onclick = () => startQuiz(s);
-    grid.appendChild(card);
+    const chip = document.createElement('span');
+    chip.className = 'subj-chip';
+    chip.textContent = s.icon + ' ' + s.label;
+    prev.appendChild(chip);
   });
 }
 
-function startQuiz(subject) {
-  currentSubject = subject;
-  currentQ = 0;
-  score = 0;
-  selected = null;
-  answered = false;
+function startSimulado() {
+  // Montar lista de questões em sequência por matéria
+  allQuestions = [];
+  scores = {};
+  SUBJECTS.forEach((sub, si) => {
+    scores[sub.id] = { acertos: 0, total: sub.questions.length, label: sub.label, icon: sub.icon };
+    sub.questions.forEach((q, qi) => {
+      allQuestions.push({ si, qi });
+    });
+  });
+  current = 0;
+  lastSubjectId = null;
   show('screen-quiz');
   renderQuestion();
 }
 
 function renderQuestion() {
-  const q = currentSubject.questions[currentQ];
-  const total = currentSubject.questions.length;
+  const { si, qi } = allQuestions[current];
+  const sub = SUBJECTS[si];
+  const q = sub.questions[qi];
   selected = null;
   answered = false;
 
-  document.getElementById('prog-label').textContent = `Questão ${currentQ + 1} de ${total}`;
-  document.getElementById('prog-subject').textContent = currentSubject.label;
-  document.getElementById('prog-fill').style.width = `${(currentQ / total) * 100}%`;
-  document.getElementById('q-num').textContent = `Questão ${currentQ + 1}`;
+  // Banner da matéria
+  document.getElementById('banner-icon').textContent = sub.icon;
+  document.getElementById('banner-name').textContent = sub.label;
+  document.getElementById('banner-sub').textContent = `Questão ${qi + 1} de ${sub.questions.length}`;
+
+  // Progresso global
+  const pct = Math.round((current / TOTAL_Q) * 100);
+  document.getElementById('prog-label').textContent = `Questão ${current + 1} de ${TOTAL_Q}`;
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-fill').style.width = pct + '%';
+
+  // Questão
+  document.getElementById('q-num').textContent = `Questão ${qi + 1}`;
   document.getElementById('q-text').textContent = q.p;
 
+  // Opções
   const opts = document.getElementById('q-options');
   opts.innerHTML = '';
   q.a.forEach((alt, i) => {
@@ -531,13 +589,12 @@ function renderQuestion() {
     opts.appendChild(btn);
   });
 
+  // Reset feedback e botões
   const fb = document.getElementById('feedback');
   fb.className = 'feedback';
   fb.innerHTML = '';
-
   document.getElementById('btn-confirm').style.display = 'block';
   document.getElementById('btn-next').style.display = 'none';
-  document.getElementById('btn-next').disabled = true;
 }
 
 function selectOption(i, btn) {
@@ -551,61 +608,135 @@ function checkAnswer() {
   if (selected === null || answered) return;
   answered = true;
 
-  const q = currentSubject.questions[currentQ];
-  const btns = document.querySelectorAll('.opt');
-  btns.forEach((b, i) => {
+  const { si, qi } = allQuestions[current];
+  const q = SUBJECTS[si].questions[qi];
+
+  document.querySelectorAll('.opt').forEach((b, i) => {
     b.disabled = true;
     if (i === q.c) b.classList.add('correct');
     else if (i === selected && selected !== q.c) b.classList.add('wrong');
   });
 
-  const fb = document.getElementById('feedback');
   if (selected === q.c) {
-    score++;
-    fb.className = 'feedback correct show';
-    fb.innerHTML = `<span class="fb-icon">✅</span><span>${q.e}</span>`;
+    scores[SUBJECTS[si].id].acertos++;
+    document.getElementById('feedback').className = 'feedback correct show';
+    document.getElementById('feedback').innerHTML = `<span class="fb-icon">✅</span><span>${q.e}</span>`;
   } else {
-    fb.className = 'feedback wrong show';
-    fb.innerHTML = `<span class="fb-icon">❌</span><span>${q.e}</span>`;
+    document.getElementById('feedback').className = 'feedback wrong show';
+    document.getElementById('feedback').innerHTML = `<span class="fb-icon">❌</span><span>${q.e}</span>`;
   }
 
   document.getElementById('btn-confirm').style.display = 'none';
   const btnNext = document.getElementById('btn-next');
   btnNext.style.display = 'block';
-  btnNext.disabled = false;
-  btnNext.textContent = currentQ + 1 < currentSubject.questions.length ? 'Próxima →' : 'Ver resultado →';
-}
 
-function nextQuestion() {
-  currentQ++;
-  if (currentQ < currentSubject.questions.length) {
-    renderQuestion();
+  // Verificar se é a última questão da matéria
+  const isLastOfSubject = (qi === SUBJECTS[si].questions.length - 1);
+  const isLastOfAll = (current === TOTAL_Q - 1);
+
+  if (isLastOfAll) {
+    btnNext.textContent = 'Ver Resultado Final 🎉';
+  } else if (isLastOfSubject) {
+    btnNext.textContent = 'Ver resultado da matéria →';
   } else {
-    showResult();
+    btnNext.textContent = 'Próxima →';
   }
 }
 
-function showResult() {
-  const total = currentSubject.questions.length;
-  const pct = Math.round((score / total) * 100);
+function nextQuestion() {
+  const { si, qi } = allQuestions[current];
+  const isLastOfSubject = (qi === SUBJECTS[si].questions.length - 1);
+  const isLastOfAll = (current === TOTAL_Q - 1);
+
+  current++;
+
+  if (isLastOfAll) {
+    showFinalResult();
+  } else if (isLastOfSubject) {
+    showTransition(si);
+  } else {
+    renderQuestion();
+  }
+}
+
+function showTransition(si) {
+  const sub = SUBJECTS[si];
+  const sc = scores[sub.id];
+  const pct = Math.round((sc.acertos / sc.total) * 100);
+
+  document.getElementById('tr-icon').textContent = sub.icon;
+  document.getElementById('tr-title').textContent = sub.label + ' concluída!';
+  document.getElementById('tr-msg').textContent =
+    pct >= 80 ? 'Excelente! Você foi muito bem nessa matéria!' :
+    pct >= 60 ? 'Bom resultado! Continue se dedicando.' :
+    'Revise esse conteúdo depois, ok?';
+  document.getElementById('tr-score').textContent = `✅ ${sc.acertos} de ${sc.total} acertos (${pct}%)`;
+
+  // Próxima matéria
+  const nextSub = SUBJECTS[si + 1];
+  document.getElementById('tr-btn').textContent = nextSub
+    ? `Próxima: ${nextSub.icon} ${nextSub.label} →`
+    : 'Ver resultado final 🎉';
+
+  show('screen-transition');
+}
+
+function continueSimulado() {
+  show('screen-quiz');
+  renderQuestion();
+}
+
+function showFinalResult() {
+  let totalAcertos = 0;
+  let totalQ = 0;
+  SUBJECTS.forEach(sub => {
+    totalAcertos += scores[sub.id].acertos;
+    totalQ += scores[sub.id].total;
+  });
+  const pct = Math.round((totalAcertos / totalQ) * 100);
 
   document.getElementById('res-icon').textContent = pct >= 80 ? '🎉' : pct >= 60 ? '👏' : '📚';
   document.getElementById('res-pct').textContent = pct + '%';
   document.getElementById('res-msg').textContent =
-    pct >= 80 ? 'Excelente! Você arrasou!' :
-    pct >= 60 ? 'Muito bem! Ainda dá pra melhorar.' :
-    'Revise o conteúdo e tente novamente!';
-  document.getElementById('res-acertos').textContent = score;
-  document.getElementById('res-erros').textContent = total - score;
-  document.getElementById('res-total').textContent = total;
+    pct >= 80 ? 'Você arrasou no simulado! Parabéns!' :
+    pct >= 60 ? 'Bom resultado! Revise as matérias com menos acertos.' :
+    'Continue estudando, você consegue!';
+
+  document.getElementById('tot-acertos').textContent = totalAcertos;
+  document.getElementById('tot-erros').textContent = totalQ - totalAcertos;
+  document.getElementById('tot-total').textContent = totalQ;
+
+  // Resultado por matéria
+  const container = document.getElementById('subj-results');
+  container.innerHTML = '';
+  SUBJECTS.forEach(sub => {
+    const sc = scores[sub.id];
+    const p = Math.round((sc.acertos / sc.total) * 100);
+    const color = p >= 80 ? '#22C55E' : p >= 60 ? '#F59E0B' : '#EF4444';
+    const medal = p >= 80 ? '🥇' : p >= 60 ? '🥈' : '🥉';
+
+    const row = document.createElement('div');
+    row.className = 'subj-result-row';
+    row.innerHTML = `
+      <span class="s-icon">${sub.icon}</span>
+      <div class="s-info">
+        <div class="s-name">${sub.label}</div>
+        <div class="mini-bar"><div class="mini-fill" style="width:${p}%;background:${color}"></div></div>
+      </div>
+      <div class="s-score" style="color:${color}">${sc.acertos}/${sc.total}</div>
+      <span class="medal">${medal}</span>
+    `;
+    container.appendChild(row);
+  });
 
   show('screen-result');
 }
 
-function retry() { startQuiz(currentSubject); }
-function goHome() { show('screen-home'); }
+function restart() {
+  show('screen-start');
+}
 
-buildHome();
+buildStart();
 </script>
 </body>
 </html>
