@@ -1,0 +1,5 @@
+{
+  "openrouter_api_key": "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",
+  "model": "anthropic/claude-3-haiku",
+  "questoes_por_materia": 5
+}
