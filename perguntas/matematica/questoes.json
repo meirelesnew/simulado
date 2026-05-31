@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "imagem": "imagens/matematica/revisao01.jpg",
+    "pergunta": "Quanto é 8 x 7?",
+    "alternativas": [
+      "54",
+      "56",
+      "58",
+      "64"
+    ],
+    "correta": 1,
+    "explicacao": "8 x 7 = 56"
+  },
+  {
+    "id": 2,
+    "imagem": "imagens/matematica/revisao02.jpg",
+    "pergunta": "Quanto é 9 x 9?",
+    "alternativas": [
+      "81",
+      "72",
+      "90",
+      "99"
+    ],
+    "correta": 0,
+    "explicacao": "9 x 9 = 81"
+  }
+]
