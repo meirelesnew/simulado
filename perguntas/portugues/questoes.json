@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pergunta": "Oxítonas terminadas em -d(r), -l, -e(s), -o(s) e -em(ens) são:",
+    "alternativas": ["Sempre acentuadas", "Nunca acentuadas", "Paroxítonas", "Proparoxítonas"],
+    "correta": 0,
+    "explicacao": "Pelas regras de acentuação, oxítonas terminadas nessas letras/sílabas são sempre acentuadas."
+  },
+  {
+    "id": 2,
+    "pergunta": "As paroxítonas terminadas em -l, -r, -n, -ps, -x, ditongos e -ão(s) são:",
+    "alternativas": ["Nunca acentuadas", "Acentuadas", "Sempre sem acento", "Monossílabas tônicas"],
+    "correta": 1,
+    "explicacao": "Essas terminações fazem com que as paroxítonas sejam acentuadas."
+  },
+  {
+    "id": 3,
+    "pergunta": "Todas as proparoxítonas são:",
+    "alternativas": ["Opcionalmente acentuadas", "Nunca acentuadas", "Sempre acentuadas", "Acentuadas só com ditongo"],
+    "correta": 2,
+    "explicacao": "Regra geral: todas as proparoxítonas são acentuadas, sem exceção."
+  },
+  {
+    "id": 4,
+    "pergunta": "Verbo é:",
+    "alternativas": ["Uma palavra que indica qualidade", "Uma ação ou fenômeno da natureza (ex: nevar, chover)", "Uma palavra que indica lugar", "Um pronome de tratamento"],
+    "correta": 1,
+    "explicacao": "Verbo indica ação ou fenômeno da natureza. Exemplos: nevar, chover, correr."
+  },
+  {
+    "id": 5,
+    "pergunta": "Interjeições são palavras que:",
+    "alternativas": ["Indicam ação", "Indicam emoção e sentimentos, geralmente com ponto de exclamação", "Nomeiam seres", "São os sons das palavras"],
+    "correta": 1,
+    "explicacao": "Interjeições indicam emoção e sentimentos, e costumam ser acompanhadas de ponto de exclamação."
+  }
+]

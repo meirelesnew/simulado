@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pergunta": "A dança foi uma das primeiras formas de expressão humana. Essa dança primitiva é chamada de:",
+    "alternativas": ["Arte rupestre", "Arte contemporânea", "Pop Art", "Arte pré-histórica"],
+    "correta": 3,
+    "explicacao": "As primeiras danças eram manifestações da arte pré-histórica, registradas em pinturas rupestres."
+  },
+  {
+    "id": 2,
+    "pergunta": "Complete: 'As __________ feitas há milhares de anos indicam que a dança é uma atividade muito antiga.'",
+    "alternativas": ["Pinturas gregas", "Pinturas romanas", "Pinturas rupestres", "Arte pré-histórica"],
+    "correta": 2,
+    "explicacao": "As pinturas rupestres mostram cenas de dança e rituais da pré-história."
+  },
+  {
+    "id": 3,
+    "pergunta": "Qual forma de dança se transformou e ganhou códigos e regras específicas?",
+    "alternativas": ["Dança clássica", "Balé", "Rituais", "Cantos"],
+    "correta": 1,
+    "explicacao": "O balé é a forma de dança que desenvolveu técnica, vocabulário e regras próprias."
+  },
+  {
+    "id": 4,
+    "pergunta": "Onde surgiu o balé?",
+    "alternativas": ["Na França", "Na Itália", "Na Espanha", "Na Grécia"],
+    "correta": 1,
+    "explicacao": "O balé surgiu na Itália durante o Renascimento (século XV) e depois se desenvolveu na França."
+  },
+  {
+    "id": 5,
+    "pergunta": "Realizado nos salões da nobreza, incluía poesia, cantos e espetáculos como A Bela Adormecida:",
+    "alternativas": ["Balé encantado", "Balé de corte", "Balé de repertório", "Balé clássico"],
+    "correta": 1,
+    "explicacao": "O balé de corte era apresentado nos palácios da nobreza, misturando dança, poesia e música."
+  }
+]

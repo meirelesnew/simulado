@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pergunta": "Qual foi a primeira capital do território brasileiro?",
+    "alternativas": ["Santos", "Duque de Caxias", "Salvador", "Amazonas"],
+    "correta": 2,
+    "explicacao": "Salvador foi a primeira capital do Brasil, de 1549 até 1763."
+  },
+  {
+    "id": 2,
+    "pergunta": "As primeiras cidades brasileiras surgiram a partir do:",
+    "alternativas": ["Século 16", "Século 17", "Século 19", "Século 20"],
+    "correta": 0,
+    "explicacao": "As primeiras cidades no Brasil surgiram no século 16, com a colonização portuguesa."
+  },
+  {
+    "id": 3,
+    "pergunta": "As cidades podem ser classificadas entre cidades de crescimento espontâneo e:",
+    "alternativas": ["Cidades planejadas", "Cidades médias espontâneas", "Crescimento urbano", "Cidades brasileiras"],
+    "correta": 0,
+    "explicacao": "As espontâneas se desenvolvem naturalmente; as planejadas são criadas com projeto inicial (como Brasília)."
+  },
+  {
+    "id": 4,
+    "pergunta": "Quando pessoas deixam o campo para morar nas cidades, chamamos esse movimento de:",
+    "alternativas": ["Migração", "Migração interna", "Migração externa", "Êxodo rural"],
+    "correta": 3,
+    "explicacao": "Êxodo rural é o deslocamento de pessoas do campo em direção às cidades."
+  },
+  {
+    "id": 5,
+    "pergunta": "Por meio delas é possível acompanhar o avanço do desmatamento, as queimadas e outros problemas ambientais:",
+    "alternativas": ["Imagem de satélite", "Satélite artificial", "Satélites naturais", "Captação de imagem"],
+    "correta": 0,
+    "explicacao": "As imagens de satélite permitem monitorar mudanças no território, como desmatamento e queimadas."
+  }
+]

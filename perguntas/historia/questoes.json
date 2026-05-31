@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pergunta": "Declaração elaborada na França em 1789, durante a Revolução Francesa, que excluía grande parte da população:",
+    "alternativas": ["Declaração dos Direitos do Homem e do Cidadão", "Declaração Universal dos Direitos Humanos", "Estatuto da Criança e do Adolescente", "Estatuto dos Idosos"],
+    "correta": 0,
+    "explicacao": "A Declaração dos Direitos do Homem e do Cidadão (1789) excluía mulheres, escravizados e estrangeiros."
+  },
+  {
+    "id": 2,
+    "pergunta": "'Todas as pessoas nascem livres e iguais em dignidade e direitos.' Onde esse artigo está mencionado?",
+    "alternativas": ["Declaração dos Direitos do Homem e do Cidadão", "Declaração Universal dos Direitos Humanos", "Estatuto da Criança e do Adolescente", "Estatuto dos Idosos"],
+    "correta": 1,
+    "explicacao": "É o Artigo 1º da Declaração Universal dos Direitos Humanos, adotada pela ONU em 1948."
+  },
+  {
+    "id": 3,
+    "pergunta": "Mulheres, pessoas escravizadas e estrangeiros foram excluídos da democracia ateniense, não sendo considerados:",
+    "alternativas": ["Funcionários", "Cidadãos", "Empresários", "Fazendeiros"],
+    "correta": 1,
+    "explicacao": "Na democracia ateniense, só eram cidadãos homens livres, filhos de atenienses, com mais de 18 anos."
+  },
+  {
+    "id": 4,
+    "pergunta": "Um indivíduo que possui consciência de seus direitos e deveres e participa ativamente da sociedade é chamado de:",
+    "alternativas": ["Cidadania", "Cidadão", "Ateniense", "Constituição"],
+    "correta": 1,
+    "explicacao": "O cidadão ativo conhece seus direitos e deveres e participa dos assuntos da sociedade."
+  },
+  {
+    "id": 5,
+    "pergunta": "Tem como objetivo resolver conflitos por meios pacíficos, garantir o respeito aos direitos humanos e combater a desigualdade social:",
+    "alternativas": ["Declaração Universal dos Direitos Humanos", "Declaração dos Direitos do Homem e do Cidadão", "Organização das Nações Unidas (ONU)", "Cidadania"],
+    "correta": 2,
+    "explicacao": "A ONU foi criada após a Segunda Guerra Mundial com exatamente esses objetivos."
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pergunta": "Órgão do sistema urinário responsável por filtrar o sangue:",
+    "alternativas": ["Coração", "Pulmão", "Estômago", "Rins"],
+    "correta": 3,
+    "explicacao": "Os rins filtram o sangue e produzem a urina, que contém as excretas do organismo."
+  },
+  {
+    "id": 2,
+    "pergunta": "Complete: 'Grande parte das ________ produzidas pelo organismo é eliminada pela urina.'",
+    "alternativas": ["Nutrientes", "Excretas", "Vitaminas", "Gás carbônico"],
+    "correta": 1,
+    "explicacao": "As excretas (resíduos do metabolismo) são eliminadas principalmente pela urina."
+  },
+  {
+    "id": 3,
+    "pergunta": "Órgão responsável pelo transporte da urina dos rins até a bexiga urinária:",
+    "alternativas": ["Ureteres", "Bexiga urinária", "Rins", "Uretra"],
+    "correta": 0,
+    "explicacao": "Os ureteres são tubos que levam a urina dos rins até a bexiga urinária."
+  },
+  {
+    "id": 4,
+    "pergunta": "Onde é armazenada temporariamente a urina no sistema urinário?",
+    "alternativas": ["Ureteres", "Bexiga urinária", "Rins", "Uretra"],
+    "correta": 1,
+    "explicacao": "A bexiga urinária armazena a urina até ela ser eliminada pelo organismo."
+  },
+  {
+    "id": 5,
+    "pergunta": "Se formam quando há acúmulo de cristais nos rins, também conhecidos como 'pedras nos rins':",
+    "alternativas": ["Cálculos renais", "Ureteres", "Uretra", "Rins"],
+    "correta": 0,
+    "explicacao": "Os cálculos renais (pedras nos rins) formam-se pelo acúmulo de minerais cristalizados nos rins."
+  }
+]
