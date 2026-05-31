@@ -8,205 +8,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --purple: #6C63FF;
-      --purple-light: #EDE9FF;
-      --purple-dark: #4A44C1;
-      --green: #22C55E;
-      --green-light: #DCFCE7;
-      --red: #EF4444;
-      --red-light: #FEE2E2;
-      --yellow: #F59E0B;
-      --yellow-light: #FEF3C7;
-      --bg: #F5F3FF;
-      --card: #FFFFFF;
-      --text: #1E1B4B;
-      --muted: #6B7280;
-      --border: #E5E7EB;
-      --radius: 16px;
-      --radius-sm: 10px;
+      --purple: #6C63FF; --purple-light: #EDE9FF; --purple-dark: #4A44C1;
+      --green: #22C55E; --green-light: #DCFCE7;
+      --red: #EF4444; --red-light: #FEE2E2;
+      --bg: #F5F3FF; --card: #FFFFFF; --text: #1E1B4B; --muted: #6B7280; --border: #E5E7EB;
+      --radius: 16px; --radius-sm: 10px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Nunito Sans', sans-serif;
-      background: var(--bg);
-      min-height: 100vh;
-      color: var(--text);
-      padding: 24px 16px 48px;
-    }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); padding: 24px 16px 48px; }
     .container { max-width: 640px; margin: 0 auto; }
-
-    /* HEADER */
     .header { text-align: center; margin-bottom: 28px; }
-    .header .badge {
-      display: inline-block;
-      background: var(--purple-light);
-      color: var(--purple);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 12px;
-      padding: 4px 14px;
-      border-radius: 99px;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-    .header h1 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
+    .header .badge { display: inline-block; background: var(--purple-light); color: var(--purple); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12px; padding: 4px 14px; border-radius: 99px; margin-bottom: 10px; }
+    .header h1 { font-family: 'Nunito', sans-serif; font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
     .header p { font-size: 14px; color: var(--muted); }
-
-    /* SCREENS */
     .screen { display: none; }
     .screen.active { display: block; animation: fadeIn 0.25s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-    /* START SCREEN */
-    .start-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      box-shadow: 0 2px 12px rgba(108,99,255,0.08);
-      text-align: center;
-      margin-bottom: 20px;
-    }
+    /* START */
+    .start-card { background: var(--card); border-radius: var(--radius); padding: 28px 24px; box-shadow: 0 2px 12px rgba(108,99,255,0.08); text-align: center; margin-bottom: 16px; }
     .start-card .big-icon { font-size: 52px; margin-bottom: 16px; }
-    .start-card h2 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .start-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
-    .subjects-preview {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-    .subj-chip {
-      background: var(--purple-light);
-      color: var(--purple);
-      font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 99px;
-    }
-    .btn-start {
-      width: 100%;
-      padding: 16px;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .btn-start:hover { background: var(--purple-dark); transform: scale(1.01); }
+    .start-card h2 { font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .start-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+    .subjects-preview { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+    .subj-chip { background: var(--purple-light); color: var(--purple); font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 99px; }
+    .mode-row { display: flex; gap: 10px; margin-bottom: 0; }
+    .btn-mode { flex: 1; padding: 14px; border: 2px solid var(--border); border-radius: var(--radius-sm); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; cursor: pointer; transition: all 0.15s; background: var(--card); color: var(--text); }
+    .btn-mode:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-mode.primary { background: var(--purple); color: #fff; border-color: var(--purple); }
+    .btn-mode.primary:hover { background: var(--purple-dark); }
 
-    /* PROGRESS BAR GLOBAL */
-    .global-prog {
-      margin-bottom: 20px;
-    }
-    .global-prog-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    .global-prog-bar {
-      height: 8px;
-      background: var(--border);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .global-prog-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--purple), #9B8FF5);
-      border-radius: 99px;
-      transition: width 0.5s ease;
-    }
+    /* LOADING */
+    .loading-card { background: var(--card); border-radius: var(--radius); padding: 40px 24px; text-align: center; box-shadow: 0 2px 12px rgba(108,99,255,0.08); }
+    .spinner { width: 48px; height: 48px; border: 4px solid var(--purple-light); border-top-color: var(--purple); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-card h3 { font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .loading-card p { font-size: 14px; color: var(--muted); }
+    .loading-subj { display: inline-block; margin-top: 12px; background: var(--purple-light); color: var(--purple); font-weight: 700; font-size: 13px; padding: 4px 14px; border-radius: 99px; }
 
-    /* SUBJECT BANNER */
-    .subj-banner {
-      background: var(--purple);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
+    /* PROGRESS */
+    .global-prog { margin-bottom: 20px; }
+    .global-prog-meta { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+    .global-prog-bar { height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .global-prog-fill { height: 100%; background: linear-gradient(90deg, var(--purple), #9B8FF5); border-radius: 99px; transition: width 0.5s ease; }
+
+    /* BANNER */
+    .subj-banner { background: var(--purple); color: #fff; border-radius: var(--radius); padding: 14px 20px; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
     .subj-banner .s-icon { font-size: 26px; }
-    .subj-banner .s-name {
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-    }
+    .subj-banner .s-name { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; }
     .subj-banner .s-sub { font-size: 12px; opacity: 0.8; }
+    .ai-badge { background: rgba(255,255,255,0.2); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-left: 8px; }
 
-    /* QUESTION CARD */
-    .q-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 22px;
-      margin-bottom: 14px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .q-num {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--purple);
-      margin-bottom: 8px;
-    }
-    .q-text {
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.55;
-      color: var(--text);
-    }
+    /* QUESTION */
+    .q-card { background: var(--card); border-radius: var(--radius); padding: 22px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .q-num { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--purple); margin-bottom: 8px; }
+    .q-text { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.55; }
 
     /* OPTIONS */
     .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
-    .opt {
-      background: var(--card);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 13px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      transition: all 0.15s;
-      text-align: left;
-      width: 100%;
-    }
+    .opt { background: var(--card); border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 13px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--text); transition: all 0.15s; text-align: left; width: 100%; }
     .opt:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-light); }
-    .opt .opt-letter {
-      width: 26px; height: 26px;
-      border-radius: 50%;
-      background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 800; color: var(--muted);
-      flex-shrink: 0; transition: all 0.15s;
-    }
+    .opt .opt-letter { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--muted); flex-shrink: 0; transition: all 0.15s; }
     .opt.selected { border-color: var(--purple); background: var(--purple-light); }
     .opt.selected .opt-letter { background: var(--purple); color: #fff; }
     .opt.correct { border-color: var(--green); background: var(--green-light); }
@@ -216,186 +78,98 @@
     .opt:disabled { cursor: default; }
 
     /* FEEDBACK */
-    .feedback {
-      border-radius: var(--radius-sm);
-      padding: 11px 14px;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.5;
-      display: none;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
+    .feedback { border-radius: var(--radius-sm); padding: 11px 14px; font-size: 13px; font-weight: 600; line-height: 1.5; display: none; align-items: flex-start; gap: 8px; margin-bottom: 14px; }
     .feedback.show { display: flex; }
     .feedback.correct { background: var(--green-light); color: #166534; border: 1.5px solid #86EFAC; }
     .feedback.wrong { background: var(--red-light); color: #991B1B; border: 1.5px solid #FCA5A5; }
-    .fb-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
     /* BUTTONS */
     .btn-row { display: flex; gap: 10px; }
-    .btn-confirm, .btn-next {
-      flex: 1; padding: 13px;
-      border: none; border-radius: var(--radius-sm);
-      font-family: 'Nunito', sans-serif;
-      font-size: 15px; font-weight: 800;
-      cursor: pointer; transition: all 0.15s;
-    }
+    .btn-confirm, .btn-next { flex: 1; padding: 13px; border: none; border-radius: var(--radius-sm); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; transition: all 0.15s; }
     .btn-confirm { background: var(--purple); color: #fff; }
     .btn-confirm:hover { background: var(--purple-dark); }
     .btn-next { background: var(--purple); color: #fff; display: none; }
     .btn-next:hover { background: var(--purple-dark); }
 
-    /* SUBJECT TRANSITION */
-    .subj-transition {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(108,99,255,0.08);
-    }
+    /* TRANSITION */
+    .subj-transition { background: var(--card); border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: 0 2px 12px rgba(108,99,255,0.08); }
     .subj-transition .big-icon { font-size: 48px; margin-bottom: 12px; }
-    .subj-transition h2 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 20px; font-weight: 800;
-      color: var(--text); margin-bottom: 6px;
-    }
-    .subj-transition p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-    .score-inline {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--purple-light);
-      color: var(--purple);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800; font-size: 15px;
-      padding: 8px 18px; border-radius: 99px;
-      margin-bottom: 24px;
-    }
-    .btn-continue {
-      width: 100%; padding: 14px;
-      background: var(--purple); color: #fff;
-      border: none; border-radius: var(--radius-sm);
-      font-family: 'Nunito', sans-serif;
-      font-size: 15px; font-weight: 800;
-      cursor: pointer; transition: all 0.15s;
-    }
+    .subj-transition h2 { font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .subj-transition p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .score-inline { display: inline-flex; align-items: center; gap: 8px; background: var(--purple-light); color: var(--purple); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px; padding: 8px 18px; border-radius: 99px; margin-bottom: 24px; }
+    .btn-continue { width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none; border-radius: var(--radius-sm); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; transition: all 0.15s; }
     .btn-continue:hover { background: var(--purple-dark); }
 
     /* RESULT */
-    .result-header {
-      background: var(--purple);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      text-align: center;
-      color: #fff;
-      margin-bottom: 16px;
-    }
+    .result-header { background: var(--purple); border-radius: var(--radius); padding: 28px 24px; text-align: center; color: #fff; margin-bottom: 16px; }
     .result-header .big-icon { font-size: 52px; margin-bottom: 12px; }
-    .result-header h2 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 22px; font-weight: 800; margin-bottom: 4px;
-    }
+    .result-pct { font-family: 'Nunito', sans-serif; font-size: 56px; font-weight: 800; margin: 8px 0 4px; }
+    .result-header h2 { font-family: 'Nunito', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 4px; }
     .result-header p { font-size: 14px; opacity: 0.85; }
-    .result-pct {
-      font-family: 'Nunito', sans-serif;
-      font-size: 56px; font-weight: 800;
-      margin: 8px 0 4px;
-    }
-
-    /* SUBJECT RESULTS */
+    .total-box { background: var(--card); border-radius: var(--radius); padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+    .total-stat { text-align: center; }
+    .total-stat .val { font-family: 'Nunito', sans-serif; font-size: 26px; font-weight: 800; }
+    .total-stat .lbl { font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 2px; }
     .subj-results { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-    .subj-result-row {
-      background: var(--card);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    }
+    .subj-result-row { background: var(--card); border-radius: var(--radius-sm); padding: 14px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
     .subj-result-row .s-icon { font-size: 24px; flex-shrink: 0; }
     .subj-result-row .s-info { flex: 1; }
-    .subj-result-row .s-name {
-      font-family: 'Nunito', sans-serif;
-      font-size: 14px; font-weight: 800; color: var(--text);
-      margin-bottom: 5px;
-    }
-    .mini-bar {
-      height: 6px; background: var(--border); border-radius: 99px; overflow: hidden;
-    }
-    .mini-fill {
-      height: 100%; border-radius: 99px;
-      transition: width 0.6s ease;
-    }
-    .subj-result-row .s-score {
-      font-family: 'Nunito', sans-serif;
-      font-size: 14px; font-weight: 800;
-      flex-shrink: 0; min-width: 44px; text-align: right;
-    }
+    .subj-result-row .s-name { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; margin-bottom: 5px; }
+    .mini-bar { height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .mini-fill { height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+    .subj-result-row .s-score { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; flex-shrink: 0; min-width: 44px; text-align: right; }
     .medal { font-size: 18px; flex-shrink: 0; }
-
-    .total-box {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    }
-    .total-stat { text-align: center; }
-    .total-stat .val {
-      font-family: 'Nunito', sans-serif;
-      font-size: 26px; font-weight: 800; color: var(--text);
-    }
-    .total-stat .lbl { font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 2px; }
-
-    .btn-restart {
-      width: 100%; padding: 14px;
-      background: var(--purple); color: #fff;
-      border: none; border-radius: var(--radius-sm);
-      font-family: 'Nunito', sans-serif;
-      font-size: 15px; font-weight: 800;
-      cursor: pointer; transition: all 0.15s;
-    }
+    .result-btns { display: flex; gap: 10px; }
+    .btn-restart { flex: 1; padding: 14px; background: var(--purple); color: #fff; border: none; border-radius: var(--radius-sm); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; transition: all 0.15s; }
     .btn-restart:hover { background: var(--purple-dark); }
+    .btn-restart.outline { background: var(--card); color: var(--purple); border: 2px solid var(--purple); }
+    .btn-restart.outline:hover { background: var(--purple-light); }
 
-    @media (max-width: 480px) {
-      .header h1 { font-size: 22px; }
-      .q-text { font-size: 15px; }
-    }
+    /* ERROR */
+    .error-box { background: var(--red-light); border: 1.5px solid #FCA5A5; border-radius: var(--radius-sm); padding: 14px 16px; font-size: 14px; color: #991B1B; font-weight: 600; margin-bottom: 16px; display: none; }
+    .error-box.show { display: block; }
   </style>
 </head>
 <body>
 <div class="container">
-
   <div class="header">
     <div class="badge">✏️ Fixação para o Simulado</div>
     <h1>📚 Simulado Maria Fernanda</h1>
     <p>Questões retiradas das suas folhas de estudo</p>
   </div>
 
-  <!-- TELA: Início -->
+  <!-- INÍCIO -->
   <div class="screen active" id="screen-start">
     <div class="start-card">
       <div class="big-icon">🎯</div>
       <h2>Simulado Completo</h2>
-      <p>Você vai responder questões de todas as matérias em sequência. Ao final, verá seu resultado em cada disciplina.</p>
+      <p>Responda questões de todas as matérias em sequência e veja seu desempenho no final.</p>
       <div class="subjects-preview" id="subjects-preview"></div>
-      <button class="btn-start" onclick="startSimulado()">Começar Simulado →</button>
+      <div class="mode-row">
+        <button class="btn-mode outline" onclick="startSimulado(false)">📋 Questões fixas</button>
+        <button class="btn-mode primary" onclick="startSimulado(true)">✨ Gerar com IA</button>
+      </div>
     </div>
   </div>
 
-  <!-- TELA: Questão -->
+  <!-- CARREGANDO IA -->
+  <div class="screen" id="screen-loading">
+    <div class="loading-card">
+      <div class="spinner"></div>
+      <h3>Gerando questões com IA...</h3>
+      <p>Criando perguntas novas com base no seu conteúdo de estudo</p>
+      <div class="loading-subj" id="loading-subj">Iniciando...</div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
   <div class="screen" id="screen-quiz">
     <div class="global-prog">
       <div class="global-prog-meta">
         <span id="prog-label">Questão 1 de 30</span>
         <span id="prog-pct">0%</span>
       </div>
-      <div class="global-prog-bar">
-        <div class="global-prog-fill" id="prog-fill" style="width:0%"></div>
-      </div>
+      <div class="global-prog-bar"><div class="global-prog-fill" id="prog-fill" style="width:0%"></div></div>
     </div>
     <div class="subj-banner">
       <span class="s-icon" id="banner-icon"></span>
@@ -403,6 +177,7 @@
         <div class="s-name" id="banner-name"></div>
         <div class="s-sub" id="banner-sub"></div>
       </div>
+      <span class="ai-badge" id="ai-badge" style="display:none">✨ IA</span>
     </div>
     <div class="q-card">
       <div class="q-num" id="q-num"></div>
@@ -410,13 +185,14 @@
     </div>
     <div class="options" id="q-options"></div>
     <div class="feedback" id="feedback"></div>
+    <div class="error-box" id="error-box"></div>
     <div class="btn-row">
       <button class="btn-confirm" id="btn-confirm" onclick="checkAnswer()">Confirmar resposta</button>
       <button class="btn-next" id="btn-next" onclick="nextQuestion()">Próxima →</button>
     </div>
   </div>
 
-  <!-- TELA: Transição de matéria -->
+  <!-- TRANSIÇÃO -->
   <div class="screen" id="screen-transition">
     <div class="subj-transition">
       <div class="big-icon" id="tr-icon"></div>
@@ -427,7 +203,7 @@
     </div>
   </div>
 
-  <!-- TELA: Resultado Final -->
+  <!-- RESULTADO FINAL -->
   <div class="screen" id="screen-result">
     <div class="result-header">
       <div class="big-icon" id="res-icon"></div>
@@ -435,98 +211,97 @@
       <h2>Simulado Concluído!</h2>
       <p id="res-msg"></p>
     </div>
-
     <div class="total-box">
       <div class="total-stat"><div class="val" id="tot-acertos"></div><div class="lbl">Acertos</div></div>
       <div class="total-stat"><div class="val" id="tot-erros"></div><div class="lbl">Erros</div></div>
       <div class="total-stat"><div class="val" id="tot-total"></div><div class="lbl">Questões</div></div>
     </div>
-
     <div class="subj-results" id="subj-results"></div>
-
-    <button class="btn-restart" onclick="restart()">🔄 Refazer Simulado</button>
+    <div class="result-btns">
+      <button class="btn-restart outline" onclick="restart()">🔄 Refazer</button>
+      <button class="btn-restart" onclick="startSimulado(true)">✨ Novo com IA</button>
+    </div>
   </div>
-
 </div>
 
 <script>
+// ─── BANCO FIXO ────────────────────────────────────────────────────────────
 const SUBJECTS = [
-  {
-    id: "matematica", label: "Matemática", icon: "🔢",
-    questions: [
-      { p: "84 - {[(32 + 12) - (25 - 16)] + 3} =", a: ["46","47","48","49"], c: 0, e: "Resolvendo de dentro para fora: (32+12)=44; (25-16)=9; 44-9=35; 35+3=38; 84-38=46." },
-      { p: "A professora Marisa escreveu: 90 - 17 + 8 = Y. O valor de Y é:", a: ["67","75","52","81"], c: 3, e: "90 - 17 = 73. 73 + 8 = 81. Portanto Y = 81." },
-      { p: "Identifique as propriedades: 3×0 (neutro=3); 5×7=7×5 (comutativa=1); 12×(2×21) (associativa=2). A ordem correta é:", a: ["1, 3, 2","2, 1, 3","3, 1, 2","2, 3, 1"], c: 2, e: "3×0 → elemento neutro (3); 5×7=7×5 → comutativa (1); 12×(2×21) → associativa (2). Ordem: 3, 1, 2." },
-      { p: "Uma professora leva 2h por prova, 7 provas por turma, 4 bimestres no ano. Total de horas:", a: ["14 horas","56 horas","46 horas","8 horas"], c: 1, e: "2h × 7 provas = 14h por bimestre. 14h × 4 bimestres = 56 horas." },
-      { p: "Uma empresa comprou 105 ar-condicionados a R$1.200 cada. Total gasto:", a: ["R$126.000","R$120.000","R$105.000","R$12.000"], c: 0, e: "105 × R$1.200 = R$126.000." }
+  { id:"matematica", label:"Matemática", icon:"🔢", conteudo:"Expressões numéricas com colchetes e chaves, propriedades da multiplicação (comutativa, associativa, elemento neutro), problemas de multiplicação com situações do cotidiano.",
+    questions:[
+      {p:"84 - {[(32 + 12) - (25 - 16)] + 3} =", a:["46","47","48","49"], c:0, e:"De dentro para fora: (32+12)=44; (25-16)=9; 44-9=35; 35+3=38; 84-38=46."},
+      {p:"A professora Marisa escreveu: 90 - 17 + 8 = Y. O valor de Y é:", a:["67","75","52","81"], c:3, e:"90-17=73; 73+8=81. Y=81."},
+      {p:"3×0 (neutro); 5×7=7×5 (comutativa); 12×(2×21) (associativa). Ordem correta (1-comutativa, 2-associativa, 3-neutro):", a:["1,3,2","2,1,3","3,1,2","2,3,1"], c:2, e:"3×0→neutro(3); 5×7=7×5→comutativa(1); 12×(2×21)→associativa(2). Ordem: 3,1,2."},
+      {p:"Professora: 2h por prova, 7 provas, 4 bimestres. Total de horas:", a:["14h","56h","46h","8h"], c:1, e:"2×7=14h/bimestre; 14×4=56h."},
+      {p:"105 ar-condicionados a R$1.200 cada. Total:", a:["R$126.000","R$120.000","R$105.000","R$12.000"], c:0, e:"105×1200=R$126.000."}
     ]
   },
-  {
-    id: "portugues", label: "Português", icon: "📝",
-    questions: [
-      { p: "Oxítonas terminadas em -d(r), -l, -e(s), -o(s) e -em(ens) são:", a: ["Sempre acentuadas","Nunca acentuadas","Paroxítonas","Proparoxítonas"], c: 0, e: "Pelas regras de acentuação, oxítonas com essas terminações são sempre acentuadas." },
-      { p: "As paroxítonas terminadas em -l, -r, -n, -ps, -x, ditongos e -ão(s) são:", a: ["Nunca acentuadas","Acentuadas","Sempre sem acento","Monossílabas tônicas"], c: 1, e: "Essas terminações fazem com que as paroxítonas sejam acentuadas." },
-      { p: "Todas as proparoxítonas são:", a: ["Opcionalmente acentuadas","Nunca acentuadas","Sempre acentuadas","Só com ditongo"], c: 2, e: "Regra sem exceção: todas as proparoxítonas são acentuadas." },
-      { p: "Verbo é:", a: ["Uma palavra que indica qualidade","Uma ação ou fenômeno da natureza (ex: nevar, chover)","Uma palavra que indica lugar","Um pronome de tratamento"], c: 1, e: "Verbo indica ação ou fenômeno da natureza. Exemplos: nevar, chover, correr." },
-      { p: "Interjeições são palavras que:", a: ["Indicam ação","Indicam emoção e sentimentos, geralmente com !","Nomeiam seres","São os sons das palavras"], c: 1, e: "Interjeições indicam emoção e sentimentos, geralmente acompanhadas de ponto de exclamação." }
+  { id:"portugues", label:"Português", icon:"📝", conteudo:"Acentuação gráfica (oxítonas, paroxítonas, proparoxítonas), classes gramaticais (verbo, interjeição, substantivo, adjetivo), modos verbais (indicativo, subjuntivo, imperativo), fonemas e letras, numerais.",
+    questions:[
+      {p:"Oxítonas terminadas em -d(r), -l, -e(s), -o(s) e -em(ens) são:", a:["Sempre acentuadas","Nunca acentuadas","Paroxítonas","Proparoxítonas"], c:0, e:"Essas terminações fazem a oxítona ser acentuada."},
+      {p:"As paroxítonas terminadas em -l, -r, -n, -ps, -x, ditongos e -ão(s) são:", a:["Nunca acentuadas","Acentuadas","Sem acento","Monossílabas"], c:1, e:"Essas terminações exigem acento nas paroxítonas."},
+      {p:"Todas as proparoxítonas são:", a:["Opcionalmente acentuadas","Nunca acentuadas","Sempre acentuadas","Só com ditongo"], c:2, e:"Regra absoluta: toda proparoxítona é acentuada."},
+      {p:"Verbo é:", a:["Palavra que indica qualidade","Ação ou fenômeno da natureza (ex: nevar, chover)","Palavra que indica lugar","Pronome de tratamento"], c:1, e:"Verbo indica ação ou fenômeno da natureza."},
+      {p:"Interjeições são palavras que:", a:["Indicam ação","Indicam emoção/sentimentos, geralmente com !","Nomeiam seres","São sons das palavras"], c:1, e:"Interjeições expressam emoção e vêm com ponto de exclamação."}
     ]
   },
-  {
-    id: "historia", label: "História", icon: "🏛️",
-    questions: [
-      { p: "Declaração elaborada na França em 1789, durante a Revolução Francesa, que excluía grande parte da população:", a: ["Declaração dos Direitos do Homem e do Cidadão","Declaração Universal dos Direitos Humanos","Estatuto da Criança e do Adolescente","Estatuto dos Idosos"], c: 0, e: "A Declaração dos Direitos do Homem e do Cidadão (1789) excluía mulheres, escravizados e estrangeiros." },
-      { p: "'Todas as pessoas nascem livres e iguais em dignidade e direitos.' Onde está esse artigo?", a: ["Declaração dos Direitos do Homem e do Cidadão","Declaração Universal dos Direitos Humanos","Estatuto da Criança e do Adolescente","Estatuto dos Idosos"], c: 1, e: "É o Artigo 1º da Declaração Universal dos Direitos Humanos (ONU, 1948)." },
-      { p: "Mulheres, escravizados e estrangeiros foram excluídos da democracia ateniense, não sendo considerados:", a: ["Funcionários","Cidadãos","Empresários","Fazendeiros"], c: 1, e: "Na democracia ateniense, só eram cidadãos homens livres, filhos de atenienses, maiores de 18 anos." },
-      { p: "Indivíduo que possui consciência de seus direitos e deveres e participa ativamente da sociedade:", a: ["Cidadania","Cidadão","Ateniense","Constituição"], c: 1, e: "O cidadão ativo conhece seus direitos e deveres e participa dos assuntos da sociedade." },
-      { p: "Tem como objetivo resolver conflitos pacificamente, garantir os direitos humanos e combater a desigualdade social:", a: ["Declaração Universal dos Direitos Humanos","Declaração dos Direitos do Homem e do Cidadão","Organização das Nações Unidas (ONU)","Cidadania"], c: 2, e: "A ONU foi criada após a Segunda Guerra Mundial com exatamente esses objetivos." }
+  { id:"historia", label:"História", icon:"🏛️", conteudo:"Declaração dos Direitos do Homem e do Cidadão (França 1789), Declaração Universal dos Direitos Humanos (ONU 1948), democracia ateniense, cidadania, ONU e resolução de conflitos.",
+    questions:[
+      {p:"Declaração elaborada na França em 1789 que excluía grande parte da população:", a:["Declaração dos Direitos do Homem e do Cidadão","Declaração Universal dos Direitos Humanos","Estatuto da Criança","Estatuto dos Idosos"], c:0, e:"Criada em 1789, excluía mulheres, escravizados e estrangeiros."},
+      {p:"'Todas as pessoas nascem livres e iguais em dignidade e direitos.' Onde está esse artigo?", a:["Declaração dos Direitos do Homem","Declaração Universal dos Direitos Humanos","Estatuto da Criança","Estatuto dos Idosos"], c:1, e:"Artigo 1º da Declaração Universal dos Direitos Humanos (ONU, 1948)."},
+      {p:"Na democracia ateniense, mulheres, escravizados e estrangeiros não eram considerados:", a:["Funcionários","Cidadãos","Empresários","Fazendeiros"], c:1, e:"Só eram cidadãos homens livres, filhos de atenienses, maiores de 18 anos."},
+      {p:"Indivíduo consciente de seus direitos e deveres que participa ativamente da sociedade:", a:["Cidadania","Cidadão","Ateniense","Constituição"], c:1, e:"O cidadão ativo participa da sociedade conhecendo seus direitos e deveres."},
+      {p:"Organização que resolve conflitos pacificamente e combate a desigualdade social:", a:["Declaração Universal","Declaração dos Direitos do Homem","Organização das Nações Unidas (ONU)","Cidadania"], c:2, e:"A ONU foi criada após a 2ª Guerra com esses objetivos."}
     ]
   },
-  {
-    id: "geografia", label: "Geografia", icon: "🌎",
-    questions: [
-      { p: "Qual foi a primeira capital do território brasileiro?", a: ["Santos","Duque de Caxias","Salvador","Amazonas"], c: 2, e: "Salvador foi a primeira capital do Brasil, de 1549 até 1763." },
-      { p: "As primeiras cidades brasileiras surgiram a partir do:", a: ["Século 16","Século 17","Século 19","Século 20"], c: 0, e: "As primeiras cidades surgiram no século 16, com a colonização portuguesa." },
-      { p: "As cidades podem ser classificadas entre cidades de crescimento espontâneo e:", a: ["Cidades planejadas","Cidades médias espontâneas","Crescimento urbano","Cidades brasileiras"], c: 0, e: "As espontâneas surgem naturalmente; as planejadas são criadas com projeto inicial (ex: Brasília)." },
-      { p: "Quando pessoas deixam o campo para morar nas cidades, esse movimento é chamado de:", a: ["Migração","Migração interna","Migração externa","Êxodo rural"], c: 3, e: "Êxodo rural é o deslocamento de pessoas do campo em direção às cidades." },
-      { p: "Por meio delas é possível acompanhar o avanço do desmatamento, queimadas e outros problemas ambientais:", a: ["Imagem de satélite","Satélite artificial","Satélites naturais","Captação de imagem"], c: 0, e: "As imagens de satélite permitem monitorar mudanças no território, como desmatamento e queimadas." }
+  { id:"geografia", label:"Geografia", icon:"🌎", conteudo:"Primeiras cidades brasileiras, primeira capital do Brasil, tipos de cidades (espontâneas e planejadas), êxodo rural, imagens de satélite e monitoramento ambiental.",
+    questions:[
+      {p:"Qual foi a primeira capital do território brasileiro?", a:["Santos","Duque de Caxias","Salvador","Amazonas"], c:2, e:"Salvador foi capital de 1549 até 1763."},
+      {p:"As primeiras cidades brasileiras surgiram no:", a:["Século 16","Século 17","Século 19","Século 20"], c:0, e:"Surgiram no século 16 com a colonização portuguesa."},
+      {p:"Cidades que surgem naturalmente vs cidades criadas com projeto inicial são:", a:["Espontâneas e planejadas","Médias e espontâneas","Urbanas e planejadas","Brasileiras"], c:0, e:"Espontâneas crescem naturalmente; planejadas têm projeto prévio (ex: Brasília)."},
+      {p:"Movimento de pessoas que deixam o campo para morar na cidade:", a:["Migração","Migração interna","Migração externa","Êxodo rural"], c:3, e:"Êxodo rural é o deslocamento campo→cidade."},
+      {p:"Recurso que permite acompanhar desmatamento, queimadas e problemas ambientais:", a:["Imagem de satélite","Satélite artificial","Satélite natural","Captação de imagem"], c:0, e:"Imagens de satélite monitoram mudanças no território."}
     ]
   },
-  {
-    id: "ciencias", label: "Ciências", icon: "🔬",
-    questions: [
-      { p: "Órgão do sistema urinário responsável por filtrar o sangue:", a: ["Coração","Pulmão","Estômago","Rins"], c: 3, e: "Os rins filtram o sangue e produzem a urina, que contém as excretas do organismo." },
-      { p: "Complete: 'Grande parte das ________ produzidas pelo organismo é eliminada pela urina.'", a: ["Nutrientes","Excretas","Vitaminas","Gás carbônico"], c: 1, e: "As excretas (resíduos do metabolismo) são eliminadas principalmente pela urina." },
-      { p: "Órgão responsável pelo transporte da urina dos rins até a bexiga urinária:", a: ["Ureteres","Bexiga urinária","Rins","Uretra"], c: 0, e: "Os ureteres são tubos que levam a urina dos rins até a bexiga." },
-      { p: "Onde é armazenada temporariamente a urina no sistema urinário?", a: ["Ureteres","Bexiga urinária","Rins","Uretra"], c: 1, e: "A bexiga urinária armazena a urina até ser eliminada pelo organismo." },
-      { p: "Formam-se pelo acúmulo de cristais nos rins, também conhecidos como 'pedras nos rins':", a: ["Cálculos renais","Ureteres","Uretra","Rins"], c: 0, e: "Os cálculos renais (pedras nos rins) formam-se pelo acúmulo de minerais cristalizados nos rins." }
+  { id:"ciencias", label:"Ciências", icon:"🔬", conteudo:"Sistema urinário: rins, ureteres, bexiga urinária, uretra. Funções: filtragem do sangue, transporte e armazenamento da urina. Doenças: cálculos renais, incontinência urinária, hemodiálise.",
+    questions:[
+      {p:"Órgão do sistema urinário que filtra o sangue:", a:["Coração","Pulmão","Estômago","Rins"], c:3, e:"Os rins filtram o sangue e produzem a urina."},
+      {p:"Complete: 'Grande parte das _____ produzidas pelo organismo é eliminada pela urina.'", a:["Nutrientes","Excretas","Vitaminas","Gás carbônico"], c:1, e:"As excretas (resíduos metabólicos) são eliminadas pela urina."},
+      {p:"Órgão que transporta a urina dos rins até a bexiga:", a:["Ureteres","Bexiga","Rins","Uretra"], c:0, e:"Os ureteres ligam os rins à bexiga urinária."},
+      {p:"Onde a urina fica armazenada temporariamente?", a:["Ureteres","Bexiga urinária","Rins","Uretra"], c:1, e:"A bexiga armazena a urina antes de ser eliminada."},
+      {p:"Acúmulo de cristais nos rins, também chamadas 'pedras nos rins':", a:["Cálculos renais","Ureteres","Uretra","Rins"], c:0, e:"Cálculos renais formam-se pelo acúmulo de minerais cristalizados."}
     ]
   },
-  {
-    id: "artes", label: "Artes", icon: "🎨",
-    questions: [
-      { p: "A dança foi uma das primeiras formas de expressão humana. Essa dança primitiva é chamada de:", a: ["Arte rupestre","Arte contemporânea","Pop Art","Arte pré-histórica"], c: 3, e: "As primeiras danças eram manifestações da arte pré-histórica, registradas em pinturas rupestres." },
-      { p: "Complete: 'As __________ feitas há milhares de anos indicam que a dança é uma atividade muito antiga.'", a: ["Pinturas gregas","Pinturas romanas","Pinturas rupestres","Arte pré-histórica"], c: 2, e: "As pinturas rupestres mostram cenas de dança e rituais da pré-história." },
-      { p: "Qual forma de dança se transformou e ganhou códigos e regras específicas?", a: ["Dança clássica","Balé","Rituais","Cantos"], c: 1, e: "O balé é a forma de dança que desenvolveu técnica, vocabulário e regras próprias ao longo do tempo." },
-      { p: "Onde surgiu o balé?", a: ["Na França","Na Itália","Na Espanha","Na Grécia"], c: 1, e: "O balé surgiu na Itália durante o Renascimento (século XV) e depois se consolidou na França." },
-      { p: "Realizado nos salões da nobreza, incluía poesia, cantos e espetáculos como A Bela Adormecida:", a: ["Balé encantado","Balé de corte","Balé de repertório","Balé clássico"], c: 1, e: "O balé de corte era apresentado nos palácios da nobreza, misturando dança, poesia e música." }
+  { id:"artes", label:"Artes", icon:"🎨", conteudo:"História da dança: arte pré-histórica, pinturas rupestres, origem do balé na Itália (século XV), balé de corte, balé clássico, dança indiana Odissi e Tribhanga.",
+    questions:[
+      {p:"A dança primitiva como forma de expressão humana é chamada de:", a:["Arte rupestre","Arte contemporânea","Pop Art","Arte pré-histórica"], c:3, e:"As primeiras danças eram arte pré-histórica, registradas em pinturas rupestres."},
+      {p:"'As _____ feitas há milhares de anos indicam que a dança é muito antiga.'", a:["Pinturas gregas","Pinturas romanas","Pinturas rupestres","Arte pré-histórica"], c:2, e:"Pinturas rupestres registram danças e rituais da pré-história."},
+      {p:"Forma de dança que ganhou códigos e regras específicas:", a:["Dança clássica","Balé","Rituais","Cantos"], c:1, e:"O balé desenvolveu técnica, vocabulário e regras próprias."},
+      {p:"Onde surgiu o balé?", a:["Na França","Na Itália","Na Espanha","Na Grécia"], c:1, e:"Surgiu na Itália no século XV e se consolidou na França."},
+      {p:"Realizado nos salões da nobreza com poesia e cantos, como A Bela Adormecida:", a:["Balé encantado","Balé de corte","Balé de repertório","Balé clássico"], c:1, e:"O balé de corte misturava dança, poesia e música nos palácios."}
     ]
   }
 ];
 
-// Estado global
-let allQuestions = [];   // lista flat: { subjectIndex, questionIndex }
-let current = 0;         // índice na lista flat
-let scores = {};         // { subjectId: { acertos, total } }
+// ─── ESTADO ────────────────────────────────────────────────────────────────
+let config = {};
+let allQuestions = [];
+let current = 0;
+let scores = {};
 let selected = null;
 let answered = false;
-let lastSubjectId = null;
-
+let useAI = false;
 const TOTAL_Q = SUBJECTS.reduce((s, sub) => s + sub.questions.length, 0);
 
-function show(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+// ─── INIT ──────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    const r = await fetch('config.json');
+    config = await r.json();
+  } catch(e) {
+    config = { openrouter_api_key: '', model: 'anthropic/claude-3-haiku', questoes_por_materia: 5 };
+  }
+  buildStart();
 }
 
 function buildStart() {
@@ -540,76 +315,142 @@ function buildStart() {
   });
 }
 
-function startSimulado() {
-  // Montar lista de questões em sequência por matéria
-  allQuestions = [];
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── START ─────────────────────────────────────────────────────────────────
+async function startSimulado(ai) {
+  useAI = ai;
   scores = {};
-  SUBJECTS.forEach((sub, si) => {
+  SUBJECTS.forEach(sub => {
     scores[sub.id] = { acertos: 0, total: sub.questions.length, label: sub.label, icon: sub.icon };
-    sub.questions.forEach((q, qi) => {
-      allQuestions.push({ si, qi });
-    });
   });
+
+  if (ai && config.openrouter_api_key && config.openrouter_api_key !== 'SUA_CHAVE_AQUI') {
+    show('screen-loading');
+    await gerarTodasQuestoes();
+  } else {
+    if (ai) console.warn('Chave não configurada, usando banco fixo.');
+    useAI = false;
+    allQuestions = [];
+    SUBJECTS.forEach((sub, si) => {
+      sub.questions.forEach((q, qi) => allQuestions.push({ si, qi, q }));
+    });
+  }
+
   current = 0;
-  lastSubjectId = null;
   show('screen-quiz');
   renderQuestion();
 }
 
+// ─── GERAR COM IA ──────────────────────────────────────────────────────────
+async function gerarTodasQuestoes() {
+  allQuestions = [];
+  const n = config.questoes_por_materia || 5;
+
+  for (let si = 0; si < SUBJECTS.length; si++) {
+    const sub = SUBJECTS[si];
+    document.getElementById('loading-subj').textContent = sub.icon + ' Gerando ' + sub.label + '...';
+    scores[sub.id].total = n;
+
+    const prompt = `Você é um professor do ensino fundamental. Crie exatamente ${n} questões de múltipla escolha sobre "${sub.label}" com base neste conteúdo: ${sub.conteudo}
+
+Responda SOMENTE com JSON válido, sem texto extra, sem markdown. Formato exato:
+[
+  {
+    "p": "Texto da pergunta",
+    "a": ["Alternativa A", "Alternativa B", "Alternativa C", "Alternativa D"],
+    "c": 0,
+    "e": "Explicação curta da resposta correta"
+  }
+]
+
+Regras:
+- "c" é o índice (0-3) da alternativa correta
+- As perguntas devem ser diferentes das questões-padrão
+- Nível adequado para ensino fundamental
+- Todas em português do Brasil`;
+
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + config.openrouter_api_key,
+          'HTTP-Referer': window.location.href,
+          'X-Title': 'Simulado Maria Fernanda'
+        },
+        body: JSON.stringify({
+          model: config.model || 'anthropic/claude-3-haiku',
+          messages: [{ role: 'user', content: prompt }],
+          max_tokens: 2000,
+          temperature: 0.8
+        })
+      });
+
+      const data = await res.json();
+      let text = data.choices?.[0]?.message?.content || '';
+      text = text.replace(/```json|```/g, '').trim();
+      const questoes = JSON.parse(text);
+      questoes.forEach(q => allQuestions.push({ si, qi: allQuestions.filter(x => x.si === si).length, q }));
+    } catch(err) {
+      console.error('Erro ao gerar ' + sub.label, err);
+      // fallback para questões fixas desta matéria
+      sub.questions.forEach((q, qi) => allQuestions.push({ si, qi, q }));
+      scores[sub.id].total = sub.questions.length;
+    }
+  }
+}
+
+// ─── RENDER QUESTION ───────────────────────────────────────────────────────
 function renderQuestion() {
-  const { si, qi } = allQuestions[current];
-  const sub = SUBJECTS[si];
-  const q = sub.questions[qi];
+  const item = allQuestions[current];
+  const sub = SUBJECTS[item.si];
+  const q = item.q;
   selected = null;
   answered = false;
 
-  // Banner da matéria
-  document.getElementById('banner-icon').textContent = sub.icon;
-  document.getElementById('banner-name').textContent = sub.label;
-  document.getElementById('banner-sub').textContent = `Questão ${qi + 1} de ${sub.questions.length}`;
-
-  // Progresso global
-  const pct = Math.round((current / TOTAL_Q) * 100);
-  document.getElementById('prog-label').textContent = `Questão ${current + 1} de ${TOTAL_Q}`;
+  const totalQ = allQuestions.length;
+  const pct = Math.round((current / totalQ) * 100);
+  document.getElementById('prog-label').textContent = `Questão ${current + 1} de ${totalQ}`;
   document.getElementById('prog-pct').textContent = pct + '%';
   document.getElementById('prog-fill').style.width = pct + '%';
 
-  // Questão
-  document.getElementById('q-num').textContent = `Questão ${qi + 1}`;
+  document.getElementById('banner-icon').textContent = sub.icon;
+  document.getElementById('banner-name').textContent = sub.label;
+  const qIdx = allQuestions.slice(0, current + 1).filter(x => x.si === item.si).length;
+  const qTotal = allQuestions.filter(x => x.si === item.si).length;
+  document.getElementById('banner-sub').textContent = `Questão ${qIdx} de ${qTotal}`;
+  document.getElementById('ai-badge').style.display = useAI ? 'inline' : 'none';
+
+  document.getElementById('q-num').textContent = `Questão ${current + 1}`;
   document.getElementById('q-text').textContent = q.p;
 
-  // Opções
   const opts = document.getElementById('q-options');
   opts.innerHTML = '';
   q.a.forEach((alt, i) => {
     const btn = document.createElement('button');
     btn.className = 'opt';
     btn.innerHTML = `<span class="opt-letter">${String.fromCharCode(65+i)}</span>${alt}`;
-    btn.onclick = () => selectOption(i, btn);
+    btn.onclick = () => { if (!answered) { selected = i; document.querySelectorAll('.opt').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); } };
     opts.appendChild(btn);
   });
 
-  // Reset feedback e botões
-  const fb = document.getElementById('feedback');
-  fb.className = 'feedback';
-  fb.innerHTML = '';
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('error-box').className = 'error-box';
   document.getElementById('btn-confirm').style.display = 'block';
   document.getElementById('btn-next').style.display = 'none';
 }
 
-function selectOption(i, btn) {
-  if (answered) return;
-  selected = i;
-  document.querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-}
-
+// ─── CHECK ─────────────────────────────────────────────────────────────────
 function checkAnswer() {
   if (selected === null || answered) return;
   answered = true;
-
-  const { si, qi } = allQuestions[current];
-  const q = SUBJECTS[si].questions[qi];
+  const item = allQuestions[current];
+  const q = item.q;
 
   document.querySelectorAll('.opt').forEach((b, i) => {
     b.disabled = true;
@@ -618,95 +459,62 @@ function checkAnswer() {
   });
 
   if (selected === q.c) {
-    scores[SUBJECTS[si].id].acertos++;
+    scores[SUBJECTS[item.si].id].acertos++;
     document.getElementById('feedback').className = 'feedback correct show';
-    document.getElementById('feedback').innerHTML = `<span class="fb-icon">✅</span><span>${q.e}</span>`;
+    document.getElementById('feedback').innerHTML = `<span>✅</span><span>${q.e}</span>`;
   } else {
     document.getElementById('feedback').className = 'feedback wrong show';
-    document.getElementById('feedback').innerHTML = `<span class="fb-icon">❌</span><span>${q.e}</span>`;
+    document.getElementById('feedback').innerHTML = `<span>❌</span><span>${q.e}</span>`;
   }
 
   document.getElementById('btn-confirm').style.display = 'none';
   const btnNext = document.getElementById('btn-next');
   btnNext.style.display = 'block';
 
-  // Verificar se é a última questão da matéria
-  const isLastOfSubject = (qi === SUBJECTS[si].questions.length - 1);
-  const isLastOfAll = (current === TOTAL_Q - 1);
-
-  if (isLastOfAll) {
-    btnNext.textContent = 'Ver Resultado Final 🎉';
-  } else if (isLastOfSubject) {
-    btnNext.textContent = 'Ver resultado da matéria →';
-  } else {
-    btnNext.textContent = 'Próxima →';
-  }
+  const isLastOfSubject = !allQuestions[current + 1] || allQuestions[current + 1].si !== item.si;
+  const isLastOfAll = current === allQuestions.length - 1;
+  btnNext.textContent = isLastOfAll ? 'Ver Resultado Final 🎉' : isLastOfSubject ? 'Ver resultado da matéria →' : 'Próxima →';
 }
 
+// ─── NEXT ──────────────────────────────────────────────────────────────────
 function nextQuestion() {
-  const { si, qi } = allQuestions[current];
-  const isLastOfSubject = (qi === SUBJECTS[si].questions.length - 1);
-  const isLastOfAll = (current === TOTAL_Q - 1);
-
+  const item = allQuestions[current];
+  const isLastOfSubject = !allQuestions[current + 1] || allQuestions[current + 1].si !== item.si;
+  const isLastOfAll = current === allQuestions.length - 1;
   current++;
-
-  if (isLastOfAll) {
-    showFinalResult();
-  } else if (isLastOfSubject) {
-    showTransition(si);
-  } else {
-    renderQuestion();
-  }
+  if (isLastOfAll) showFinalResult();
+  else if (isLastOfSubject) showTransition(item.si);
+  else renderQuestion();
 }
 
+// ─── TRANSITION ────────────────────────────────────────────────────────────
 function showTransition(si) {
   const sub = SUBJECTS[si];
   const sc = scores[sub.id];
   const pct = Math.round((sc.acertos / sc.total) * 100);
-
   document.getElementById('tr-icon').textContent = sub.icon;
   document.getElementById('tr-title').textContent = sub.label + ' concluída!';
-  document.getElementById('tr-msg').textContent =
-    pct >= 80 ? 'Excelente! Você foi muito bem nessa matéria!' :
-    pct >= 60 ? 'Bom resultado! Continue se dedicando.' :
-    'Revise esse conteúdo depois, ok?';
+  document.getElementById('tr-msg').textContent = pct >= 80 ? 'Excelente! Você foi muito bem!' : pct >= 60 ? 'Bom resultado! Continue se dedicando.' : 'Revise esse conteúdo depois, ok?';
   document.getElementById('tr-score').textContent = `✅ ${sc.acertos} de ${sc.total} acertos (${pct}%)`;
-
-  // Próxima matéria
   const nextSub = SUBJECTS[si + 1];
-  document.getElementById('tr-btn').textContent = nextSub
-    ? `Próxima: ${nextSub.icon} ${nextSub.label} →`
-    : 'Ver resultado final 🎉';
-
+  document.getElementById('tr-btn').textContent = nextSub ? `Próxima: ${nextSub.icon} ${nextSub.label} →` : 'Ver resultado final 🎉';
   show('screen-transition');
 }
 
-function continueSimulado() {
-  show('screen-quiz');
-  renderQuestion();
-}
+function continueSimulado() { show('screen-quiz'); renderQuestion(); }
 
+// ─── RESULT ────────────────────────────────────────────────────────────────
 function showFinalResult() {
-  let totalAcertos = 0;
-  let totalQ = 0;
-  SUBJECTS.forEach(sub => {
-    totalAcertos += scores[sub.id].acertos;
-    totalQ += scores[sub.id].total;
-  });
-  const pct = Math.round((totalAcertos / totalQ) * 100);
-
+  let totalA = 0, totalQ = 0;
+  SUBJECTS.forEach(sub => { totalA += scores[sub.id].acertos; totalQ += scores[sub.id].total; });
+  const pct = Math.round((totalA / totalQ) * 100);
   document.getElementById('res-icon').textContent = pct >= 80 ? '🎉' : pct >= 60 ? '👏' : '📚';
   document.getElementById('res-pct').textContent = pct + '%';
-  document.getElementById('res-msg').textContent =
-    pct >= 80 ? 'Você arrasou no simulado! Parabéns!' :
-    pct >= 60 ? 'Bom resultado! Revise as matérias com menos acertos.' :
-    'Continue estudando, você consegue!';
-
-  document.getElementById('tot-acertos').textContent = totalAcertos;
-  document.getElementById('tot-erros').textContent = totalQ - totalAcertos;
+  document.getElementById('res-msg').textContent = pct >= 80 ? 'Você arrasou! Parabéns!' : pct >= 60 ? 'Bom resultado! Revise as matérias com menos acertos.' : 'Continue estudando, você consegue!';
+  document.getElementById('tot-acertos').textContent = totalA;
+  document.getElementById('tot-erros').textContent = totalQ - totalA;
   document.getElementById('tot-total').textContent = totalQ;
 
-  // Resultado por matéria
   const container = document.getElementById('subj-results');
   container.innerHTML = '';
   SUBJECTS.forEach(sub => {
@@ -714,29 +522,16 @@ function showFinalResult() {
     const p = Math.round((sc.acertos / sc.total) * 100);
     const color = p >= 80 ? '#22C55E' : p >= 60 ? '#F59E0B' : '#EF4444';
     const medal = p >= 80 ? '🥇' : p >= 60 ? '🥈' : '🥉';
-
     const row = document.createElement('div');
     row.className = 'subj-result-row';
-    row.innerHTML = `
-      <span class="s-icon">${sub.icon}</span>
-      <div class="s-info">
-        <div class="s-name">${sub.label}</div>
-        <div class="mini-bar"><div class="mini-fill" style="width:${p}%;background:${color}"></div></div>
-      </div>
-      <div class="s-score" style="color:${color}">${sc.acertos}/${sc.total}</div>
-      <span class="medal">${medal}</span>
-    `;
+    row.innerHTML = `<span class="s-icon">${sub.icon}</span><div class="s-info"><div class="s-name">${sub.label}</div><div class="mini-bar"><div class="mini-fill" style="width:${p}%;background:${color}"></div></div></div><div class="s-score" style="color:${color}">${sc.acertos}/${sc.total}</div><span class="medal">${medal}</span>`;
     container.appendChild(row);
   });
-
   show('screen-result');
 }
 
-function restart() {
-  show('screen-start');
-}
-
-buildStart();
+function restart() { show('screen-start'); }
+init();
 </script>
 </body>
 </html>
